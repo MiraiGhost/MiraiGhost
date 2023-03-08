@@ -23,7 +23,6 @@ jobs:
       run: |
         npm install -g hexo-cli
         npm install
-        npm un hexo-renderer-marked --save
         npm i hexo-renderer-multi-markdown-it --save
         npm i hexo-autoprefixer --save
         npm i hexo-algoliasearch --save
