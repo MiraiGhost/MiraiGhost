@@ -1,0 +1,41 @@
+name: Build and Deploy Hexo
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@master
+      
+    - name: Use Node.js 19
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '19'
+
+    - name: Install Pandoc
+      run: |
+        sudo apt-get install pandoc
+        
+    - name: Install and Build 🔧 
+      run: |
+        npm install -g hexo-cli
+        npm install
+        npm un hexo-renderer-marked --save
+        npm i hexo-renderer-multi-markdown-it
+        npm i hexo-autoprefixer
+        npm i hexo-algoliasearch
+        npm i hexo-symbols-count-time
+        npm i hexo-feed
+        hexo clean
+        hexo generate
+        hexo algolia
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: public
