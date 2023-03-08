@@ -19,12 +19,12 @@ jobs:
       run: |
         npm install -g hexo-cli
         npm install
-        npm un hexo-renderer-marked --save
-        npm i hexo-renderer-multi-markdown-it --save
-        npm i hexo-autoprefixer --save
-        npm i hexo-algoliasearch --save
-        npm i hexo-symbols-count-time --save
-        npm i hexo-feed --save
+        npm un hexo-renderer-marked 
+        npm i hexo-renderer-multi-markdown-it 
+        npm i hexo-autoprefixer 
+        npm i hexo-algoliasearch 
+        npm i hexo-symbols-count-time 
+        npm i hexo-feed 
         hexo clean
         hexo generate
         hexo algolia
