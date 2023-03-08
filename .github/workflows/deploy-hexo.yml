@@ -29,6 +29,7 @@ jobs:
         npm i hexo-algoliasearch --save
         npm i hexo-symbols-count-time --save
         npm i hexo-feed --save
+        npm audit
         hexo clean
         hexo generate
         hexo algolia
