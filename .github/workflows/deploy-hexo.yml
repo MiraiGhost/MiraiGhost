@@ -1,37 +1,51 @@
-name: Build and Deploy Hexo
+name: Pages
+
 on:
   push:
     branches:
-      - master
+      - master  # default branch
+
 jobs:
-  build-and-deploy:
+  pages:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - name: Checkout 🛎️
-      uses: actions/checkout@master
-      
-    - name: Use Node.js 19
-      uses: actions/setup-node@v2-beta
-      with:
-        node-version: '19'
-
-    - name: Install and Build 🔧 
-      run: |
-        npm install -g hexo-cli
-        npm install
-        npm un hexo-renderer-marked 
-        npm i hexo-renderer-multi-markdown-it 
-        npm i hexo-autoprefixer 
-        npm i hexo-algoliasearch 
-        npm i hexo-symbols-count-time 
-        npm i hexo-feed 
-        hexo clean
-        hexo generate
-        hexo algolia
-
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: public
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: recursive
+      - name: Use Node.js 19.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '19'
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Install markdown-it
+        run: npm un hexo-renderer-marked --save
+        run: npm i hexo-renderer-multi-markdown-it --save
+      - name: Install autoprefixer
+        run: npm i hexo-autoprefixer --save
+      - name: Install algoliasearch
+        run: npm i hexo-algoliasearch --save
+      - name: Install count-time
+        run: npm i hexo-symbols-count-time --save
+      - name: Install feed
+        run: npm i hexo-feed --save
+      - name: Build
+        run: hexo clean
+        run: npm run build
+        run: hexo algolia
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
