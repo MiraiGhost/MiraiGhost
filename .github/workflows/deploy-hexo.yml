@@ -22,7 +22,7 @@ jobs:
     - name: Open
       uses: actions/checkout@v2
       with:
-        token: ${{ scerets.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 }}
+        token: ${{ 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 }}
         submodules: 'true'
 
     - name: Install and Build 🔧 
