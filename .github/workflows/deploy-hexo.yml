@@ -43,6 +43,12 @@ jobs:
         run: npm i hexo-feed --save
       - name: Build
         run: npm run build
+      - name: Clean
+        run: hexo clean
+      - name: Build
+        run: npm run build
+      - name: Algolia
+        run: hexo algolia
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
