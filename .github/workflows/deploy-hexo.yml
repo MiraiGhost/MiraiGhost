@@ -29,8 +29,9 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Install markdown-it
+      - name: unInstall markdown-it
         run: npm un hexo-renderer-marked --save
+      - name: Install markdown-it
         run: npm i hexo-renderer-multi-markdown-it --save
       - name: Install autoprefixer
         run: npm i hexo-autoprefixer --save
@@ -40,9 +41,11 @@ jobs:
         run: npm i hexo-symbols-count-time --save
       - name: Install feed
         run: npm i hexo-feed --save
-      - name: Build
+      - name: hexoclean
         run: hexo clean
+      - name: Build
         run: npm run build
+      - name: Install feed
         run: hexo algolia
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
