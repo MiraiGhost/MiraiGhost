@@ -243,6 +243,8 @@ audio:
 # 也可在主题配置文件设置图床 API
 # image_server: "https://acg.xydwz.cn/api/api.php"
 
+# Dependencies: https://github.com/amehime/hexo-renderer-multi-markdown-it
+pangu: false
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING `vendors` SETTINGS
