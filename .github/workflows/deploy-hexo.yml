@@ -18,12 +18,6 @@ jobs:
     - name: Install Pandoc
       run: |
         sudo apt-get install pandoc
-    
-    - name: Open
-      uses: actions/checkout@v2
-      with:
-        token: ${{ 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 }}
-        submodules: 'true'
 
     - name: Install and Build 🔧 
       run: |
