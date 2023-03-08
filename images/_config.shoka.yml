@@ -1,0 +1,269 @@
+# 站点名称 
+alternate: Mirai Sea
+# 代替Logo,显示在页面顶部，以及页尾&copy处
+
+# 静态文件目录
+statics: / #//cdn.jsdelivr.net/gh/amehime/shoka@lastest/
+# / 默认
+# //cdn.jsdeli...test/ 以使用jsDelivr进行加速
+# PS: jsDelivr 非实时更新
+
+# 夜间模式
+darkmode: true
+
+# 自动定位到上次浏览
+auto_scroll: true
+
+# 加载动画 loading-cat
+loader:
+  start: true # 初次打开显示加载动画
+  switch: false # tab 切换到其他页面，显示加载动画
+
+# 页面特效
+fireworks:
+  enable: true # 是否启用
+  color: #烟花颜色
+    - "rgba(255,182,185,.9)"
+    - "rgba(250,227,217,.9)"
+    - "rgba(187,222,214,.9)"
+    - "rgba(138,198,209,.9)"
+
+# 加载 google 字体
+font:
+
+  enable: true
+  # Font options:
+  # `external: true` will load this font family from `host` above.
+  # `family: Times New Roman`. Without any quotes.
+  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
+
+  # Global font settings used for all elements inside <body>.
+  global:
+    external: true
+    family: Mulish
+    size:
+
+  # Font settings for alternate title.
+  logo:
+    external: true
+    family: Fredericka the Great
+    size: 3.5
+
+  # Font settings for site title.
+  title:
+    external: true
+    family: Noto Serif JP
+    size: 2.5
+
+  # Font settings for headlines (<h1> to <h6>).
+  headings:
+    external: true
+    family: Noto Serif SC
+    size:
+
+  # Font settings for posts.
+  posts:
+    external: true
+    family:
+
+  # Font settings for <code> and code blocks.
+  codes:
+    external: true
+    family: Inconsolata
+# 加粗字体总是使用 Noto Serif, 为了正确友好显示日文中的汉字，会先后加载 headings 和 title 的字体设置
+
+# iconfont 图标
+# 主题没有直接使用 Font Awesome，是因为作者用不到那么多 icon 感觉非常浪费，因此在 Iconfont 上重新建立了一个项目
+# project of https://www.iconfont.cn/
+# //at.alicdn.com/t/font_1832207_c8i9n1ulxlt.css => 1832207_c8i9n1ulxlt
+iconfont: "1832207_c8i9n1ulxlt"
+# 在 <root>/source/_data/ 目录新建文件 iconfont.styl ，把新增或修改的图标样式复制到这个文件中。
+
+# 菜单与社交按钮
+menu:
+  home: / || home
+  about: /about/ || user
+  posts:
+    default: / || feather
+    archives: /archives/ || list-alt
+    categories: /categories/ || th
+    tags: /tags/ || tags
+  # friends: /friends/ || heart
+  # links: /links/ || magic
+
+social:
+  github: https://github.com/yourname || github || "#191717"
+  #google: https://plus.google.com/yourname || google
+  twitter: https://twitter.com/yourname || twitter || "#00aff0"
+  zhihu: https://www.zhihu.com/people/yourname || zhihu || "#1e88e5"
+  music: https://music.163.com/#/user/home?id=yourid || cloud-music || "#e60026"
+  weibo: https://weibo.com/yourname || weibo || "#ea716e"
+  about: https://about.me/yourname || address-card || "#3b5998"
+  #email: mailto:yourname@mail.com || envelope || "#55acd5"
+  #facebook: https://www.facebook.com/yourname || facebook
+  #stackoverflow: https://stackoverflow.com/yourname || stack-overflow
+  #youtube: https://youtube.com/yourname || youtube
+  #instagram: https://instagram.com/yourname || instagram
+  #skype: skype:yourname?call|chat || skype
+  #douban: https://www.douban.com/people/yourname/ || douban
+# 使用 || 作为分隔符，依次为 链接 || 图标 || 颜色
+# 只需要图标名称  github => ic i-github
+# 颜色码需要 ""
+# menu 支持一级子目录，子目录设置中的第一项必须为 default ，用来定义父级按钮的样式。
+# 菜单显示文字可以在语言包中定义
+#
+# 自定义语言包
+# 在 <root>/source/_data/ 目录新建文件 languages.yml
+#  # language
+#  zh-CN:
+#    # items
+#    post:
+#      copyright:
+#        # the translation you perfer
+#        author: 本文博主
+#  en:
+#    menu:
+#      travellings: Travellings
+# 站点配置及文件的 Front Matter 中， language 项只支持 zh-CN 、 zh-HK 、 zh-TW 、 ja 、 en 。类似写成 zh_CN 这样是不可以的
+
+# 边栏配置
+# 可左可右
+sidebar:
+  position: right
+  avatar: avatar.jpg
+# 可以将自己的图片放在 <root>/source/_data/images/ 目录，甚至以同名覆盖主题内默认的头像图片
+
+# 字数及阅读时间统计
+# hexo-symbols-count-time 无需修改配置文件，默认就行
+footer:
+  since: 2023
+  count: true
+post:
+  count: true
+
+# 文章评论
+valine:
+  appId: xhsg5O18j7TfHkxAiGxI6wat-gzGzoHsz
+  appKey: nsvVHxk2iazH99PeNVbckHQm
+  placeholder: "1. 提问前请先仔细阅读本文档⚡\n2. 页面显示问题💥，请提供控制台截图📸或者您的测试网址\n3. 其他任何报错💣，请提供详细描述和截图📸，祝食用愉快💪" #ヽ(○´∀`)ﾉ♪ # Comment box placeholder
+  avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
+  pageSize: 10 # Pagination size
+  lang: zh-CN
+  visitor: true # 文章访问量统计
+  NoRecordIP: false # 不记录 IP
+  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  powerMode: true # 默认打开评论框输入特效
+  tagMeta:
+    visitor: 新朋友
+    master: 主人
+    friend: 小伙伴
+    investor: 金主粑粑
+  tagColor:
+    visitor: "#855194"
+    master: "var(--color-orange)"
+    friend: "var(--color-aqua)"
+    investor: "var(--color-pink)"
+  tagMember:
+    master:
+      # - hash of master@email.com
+      # - hash of master2@email.com
+    friend:
+      # - hash of friend@email.com
+      # - hash of friend2@email.com
+    investor:
+      # - hash of investor1@email.com
+# 某一文章需要关闭屏蔽功能
+#  ---
+#  title: 关闭评论
+#  comment: false
+#  ---
+
+# 背景音乐
+# 在文章的 Front Matter 中，设置文章播放列表，访问该文章将覆盖全局配置
+#audio:
+#  - https://www...
+#  - https://www...
+audio:
+  - title: 列表1
+    list:
+      - https://music.163.com/#/playlist?id=6856072610
+      - https://music.163.com/#/playlist?id=6856072610
+  - title: 列表2
+    list:
+      - https://music.163.com/#/playlist?id=6856072610
+      - https://music.163.com/#/playlist?id=6856072610
+# audio:
+#   - name: "曲目1"
+#     url: "播放地址"
+#     artist: "艺术家"
+#     cover: "封面"
+#     lrc: "歌词"
+#   - name: "曲目2"
+#     url: "播放地址"
+#     artist: "艺术家"
+#     cover: "封面"
+#     lrc: "歌词"
+
+# 关闭当前页播放器
+#  ---
+#  title: 关闭背景音乐
+#  audio: false
+#  ---
+
+# audio:
+#     - title: 列表1
+#       list:
+#         - name: "曲目1"
+#           url: "播放地址"
+#           artist: "艺术家"
+#           cover: "封面"
+#           lrc: "歌词"
+#         - name: "曲目2"
+#           url: "播放地址"
+#           artist: "艺术家"
+#           cover: "封面"
+#           lrc: "歌词"
+#     - title: 列表2
+#       list:
+#         - https://music.163.com/#/playlist?id=2031842656
+
+
+# 随机图库
+# 默认图片列表位于 <root>/themes/shoka/_images.yml 中
+# 链接 http://wx4.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg
+#      => 6833939bly1gicmnywqgpj20zk0m8dwx.jpg
+# 自定义
+# <root>/source/_data/ 目录新建 images.yml 文件，至少6枚图片，将完全覆盖默认
+# 也可在列表 yml 文件写外链接
+# - https://i.loli.net/2020/10/30/qAMYEFXxJcKRsiG.gif
+# - https://i.loli.net/2020/10/30/rjdhcSgEN8COBPA.jpg
+# - https://i.loli.net/2020/10/30/HKyzSd7NI3mlBpt.jpg
+# - https://i.loli.net/2020/10/30/Y1CBXqgeokEs457.jpg
+# - https://i.loli.net/2020/10/30/Z5W6r2BSoiThHG1.jpg
+# 也可在主题配置文件设置图床 API
+# image_server: "https://acg.xydwz.cn/api/api.php"
+
+
+#! ---------------------------------------------------------------
+#! DO NOT EDIT THE FOLLOWING `vendors` SETTINGS
+#! UNLESS YOU KNOW WHAT YOU ARE DOING
+#! Script dependencies will be combined with jsDelivr (cdn.jsdelivr.net)
+#! ---------------------------------------------------------------
+vendors:
+  css:
+    katex: npm/katex@0.12.0/dist/katex.min.css
+    comment: css/comment.css
+    fancybox: combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css
+  js:
+    pace: npm/pace-js@1.0.2/pace.min.js
+    pjax: npm/pjax@0.2.8/pjax.min.js
+    fetch: npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js
+    anime: npm/animejs@3.2.0/lib/anime.min.js
+    algolia: npm/algoliasearch@4/dist/algoliasearch-lite.umd.js
+    instantsearch: npm/instantsearch.js@4/dist/instantsearch.production.min.js
+    lazyload: npm/lozad@1/dist/lozad.min.js
+    quicklink: npm/quicklink@2/dist/quicklink.umd.js
+    fancybox: combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js
+    valine: gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js
+    copy_tex: npm/katex@0.12.0/dist/contrib/copy-tex.min.js
+    chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js
