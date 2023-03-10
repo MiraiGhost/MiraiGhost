@@ -8,11 +8,11 @@
     <author>
       <name>宇琪</name>
     </author>
-    <updated>2023-03-09T10:54:23.665Z</updated>
+    <updated>2023-03-10T14:16:03.689Z</updated>
     <entry>
-        <id>http://localhost/2023/03/09/hello-world/</id>
+        <id>http://localhost/2023/03/10/hello-world/</id>
         <title>Hello World</title>
-        <link rel="alternate" href="http://localhost/2023/03/09/hello-world/"/>
+        <link rel="alternate" href="http://localhost/2023/03/10/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
@@ -24,6 +24,205 @@
 &lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
 </content>
-        <updated>2023-03-09T10:54:23.665Z</updated>
+        <updated>2023-03-10T14:16:03.689Z</updated>
+    </entry>
+    <entry>
+        <id>http://localhost/2023/03/10/tools/hexo/</id>
+        <title>从零开始的Hexo</title>
+        <link rel="alternate" href="http://localhost/2023/03/10/tools/hexo/"/>
+        <content type="html">&lt;h1 id=&#34;关于本文&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于本文&#34;&gt;#&lt;/a&gt; 关于本文&lt;/h1&gt;
+&lt;p&gt;使用 Hexo 生成博客模板，自动上传 Github 并自动生成页面文件并通过 GithubPage 访问。&lt;/p&gt;
+&lt;h2 id=&#34;准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#准备&#34;&gt;#&lt;/a&gt; 准备&lt;/h2&gt;
+&lt;p&gt;本地安装 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnLw==&#34;&gt;Nodejs&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=&#34;&gt;Git&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v&#34;&gt;VSCode&lt;/span&gt;。&lt;br /&gt;
+平台账号准备 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NpZ251cD9zb3VyY2U9bG9naW4=&#34;&gt;GitHub&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kYXNoLmNsb3VkZmxhcmUuY29tL3NpZ24tdXA=&#34;&gt;Cloudflare&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;hexo-安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-安装&#34;&gt;#&lt;/a&gt; Hexo 安装&lt;/h2&gt;
+&lt;p&gt;打开 VSCode&lt;br /&gt;
+++ Ctrl+Shift+` ++ 快捷键唤出终端。&lt;br /&gt;
+端运行以下命令安装 hexo&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-g&lt;/span&gt; hexo-cli&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;初始化-hexo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初始化-hexo&#34;&gt;#&lt;/a&gt; 初始化 Hexo&lt;/h3&gt;
+&lt;p&gt;完成 hexo 安装后，执行以下命令会在指定位置 folder 生成所需文件。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo init &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;folder&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;hexo-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-命令&#34;&gt;#&lt;/a&gt; Hexo 命令&lt;/h3&gt;
+&lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;init&lt;/summary&gt;&lt;div&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Hexo init &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;folder&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。&lt;br /&gt;
+本命令相当于执行了以下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Git clone hexo-starter 和 hexo-theme-landscape 主题到当前目录或指定目录。&lt;/li&gt;
+&lt;li&gt;使用 Yarn 1、pnpm 或 npm 包管理器下载依赖（如有已安装多个，则列在前面的优先）。npm 默认随 Node.js 安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;new&lt;/summary&gt;&lt;div&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;layout&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;title&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。&lt;/p&gt;
+&lt;div class=&#34;note default no-icon&#34;&gt;
+&lt;p&gt;hexo new &amp;quot;post title with whitespace&amp;quot;&lt;/p&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p,--path&lt;/td&gt;
+&lt;td&gt;自定义新文章路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-r,--replace&lt;/td&gt;
+&lt;td&gt;如果存在同名文章，将其替换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-s,--slug&lt;/td&gt;
+&lt;td&gt;文章的 Slug, 作为新文章的文件名和发布后的 URL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。对于独立页面来说，Hexo 会创建一个以标题为名字的目录，并在目录中放置一个 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2luZGV4Lm1k&#34;&gt;index.md&lt;/span&gt; 文件。你可以使用 --path 参数来覆盖上述行为、自行决定文件的目录：&lt;/p&gt;
+&lt;div class=&#34;note default no-icon&#34;&gt;
+&lt;p&gt;hexo new page --path about/me &amp;quot;About me&amp;quot;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 &amp;quot;About me&amp;quot;&lt;br /&gt;
+ 注意！title 是必须指定的！如果你这么做并不能达到你的目的：&lt;/p&gt;
+&lt;div class=&#34;note default no-icon&#34;&gt;
+&lt;p&gt;hexo new page --path about/me&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;此时 Hexo 会创建 source/_posts/about/me.md，同时 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21lLm1k&#34;&gt;me.md&lt;/span&gt; 的 Front Matter 中的 title 为 &amp;quot;page&amp;quot;。这是因为在上述命令中，hexo-cli 将 page 视为指定文章的标题、并采用默认的 layout。&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;generate&lt;/summary&gt;&lt;div&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 简写为&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo g&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;生成静态文件。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;选项&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-d,--deploy&lt;/td&gt;
+&lt;td&gt;文件生成后立即部署网站&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-w,--watch&lt;/td&gt;
+&lt;td&gt;监视文件变动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-b,--bail&lt;/td&gt;
+&lt;td&gt;生成过程中如果发生任何未处理的异常则抛出异常&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-f,--force&lt;/td&gt;
+&lt;td&gt;强制重新生成文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。&lt;br /&gt;
+使用该参数的效果接近 hexo clean &amp;amp;&amp;amp; hexo generate|&lt;br /&gt;
+|-c,--concurrency | 最大同时生成文件的数量，默认无限制 |&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;publish&lt;/summary&gt;&lt;div&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo publish &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;layout&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;filename&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;启动服务器。默认情况下，访问网址为: &lt;a href=&#34;http://localhost:4000/%E3%80%82&#34;&gt;http://localhost:4000/。&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;选项&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-p,--port&lt;/td&gt;
+&lt;td&gt;重设端口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-s,--static&lt;/td&gt;
+&lt;td&gt;只使用静态文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-l,--log&lt;/td&gt;
+&lt;td&gt;启动日记记录，使用覆盖记录格式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;h2 id=&#34;部署到-github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#部署到-github&#34;&gt;#&lt;/a&gt; 部署到 GitHub&lt;/h2&gt;
+&lt;p&gt;在 GitHub 新建一个名称和你 github 用户名一样的仓库。&lt;br /&gt;
+将生成的文件上传到你新建仓库的 master 分支。&lt;/p&gt;
+&lt;h3 id=&#34;githubaction&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#githubaction&#34;&gt;#&lt;/a&gt; GitHubAction&lt;/h3&gt;
+&lt;p&gt;在仓库中新建 /.github/workflow/***.yml 文件，github 会自动检索 workflow 下的脚本，并自动执行操作。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;name: Pages &lt;span class=&#34;token comment&#34;&gt;#名称随意&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;on:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  push:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    branches:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - master  &lt;span class=&#34;token comment&#34;&gt;# 你所上传文件存放的分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;jobs:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  pages:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    runs-on: ubuntu-latest&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    permissions:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      contents: &lt;span class=&#34;token function&#34;&gt;write&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    steps:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - uses: actions/checkout@v3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        with:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          token: $&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;--swig￼0--&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token comment&#34;&gt;# If your repository depends on submodule, please see: https://github.com/actions/checkout&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          submodules: recursive&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - name: Use Node.js &lt;span class=&#34;token number&#34;&gt;19&lt;/span&gt;.x        &lt;span class=&#34;token comment&#34;&gt;# 这里和你本地的 Node.js 版本一致。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        uses: actions/setup-node@v2   &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        with:                         &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          node-version: &lt;span class=&#34;token string&#34;&gt;&#39;19&#39;&lt;/span&gt;          &lt;span class=&#34;token comment&#34;&gt;# 这里和你本地的 Node.js 版本一致。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - name: Cache NPM dependencies&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        uses: actions/cache@v2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        with:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          path: node_modules&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          key: $&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;--swig￼1--&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;-npm-cache&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          restore-keys: &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            $&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;--swig￼2--&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;-npm-cache&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - name: Install Dependencies                 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        run: &lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt;                           &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;#   - name: unInstall markdown-it         # 如果你的 hexo 安装了额外的插件，需要在这里添加             &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;#     run: npm un hexo-renderer-marked --save                 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - name: Build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        run: &lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; run build       &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - name: Deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        uses: peaceiris/actions-gh-pages@v3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        with:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          github_token: $&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;--swig￼3--&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          publish_dir: ./public&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;githubpage设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#githubpage设置&#34;&gt;#&lt;/a&gt; GitHubPage 设置&lt;/h3&gt;
+&lt;p&gt;在 Setting &amp;gt; Page &amp;gt; Source 选择 Deploy from a branch。&lt;br /&gt;
+在 Branch 选择存放页面文件的 gh-pages 分支。&lt;br /&gt;
+接下来可以通过 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3lvdXJnaXRodWJuYW1lLmdpdGh1Yi5pbw==&#34;&gt;yourgithubname.github.io&lt;/span&gt; 访问你的网站。&lt;/p&gt;
+&lt;h2 id=&#34;至此hexo的github部署基本完毕&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#至此hexo的github部署基本完毕&#34;&gt;#&lt;/a&gt; 至此 Hexo 的 Github 部署基本完毕&lt;/h2&gt;
+&lt;p&gt;以下是可能会遇到的问题&lt;/p&gt;
+&lt;h3 id=&#34;github页面打不开&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github页面打不开&#34;&gt;#&lt;/a&gt; GitHub 页面打不开&lt;/h3&gt;
+&lt;p&gt;安装&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGVhbXBwLm5ldC8=&#34;&gt; Watt Toolkit&lt;/span&gt;&lt;br /&gt;
+ 使用它的 GitHub 加速&lt;/p&gt;
+&lt;h3 id=&#34;我使用魔法但文件上传失败&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#我使用魔法但文件上传失败&#34;&gt;#&lt;/a&gt; 我使用魔法但文件上传失败&lt;/h3&gt;
+&lt;p&gt;修改代理设置，在本地仓库根目录找到.gitconfig 文件进行设置&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;user&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你的名字&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	email &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你的邮箱@gmail.com&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;gui&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	recentrepo &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你本地仓库的绝对路径&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;http&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	sslVerify &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 在此添加代理 ，注释则删除代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	proxy &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; http://127.0.0.1:1080   &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;https&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 在下面添加 https 代理，删除则删除代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	proxy &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; socks5://127.0.0.1:1080 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# proxy 的值视代理软件而定&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;自定义域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义域名&#34;&gt;#&lt;/a&gt; 自定义域名&lt;/h2&gt;
+&lt;p&gt;首先你需要一个域名。没有可以去阿里云，腾讯云之类的买，第一年一般都很便宜。&lt;/p&gt;
+&lt;h3 id=&#34;github添加域&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github添加域&#34;&gt;#&lt;/a&gt; github 添加域&lt;/h3&gt;
+&lt;p&gt;找到你的个人信息页面 &amp;gt; Pages &amp;gt; Add a domains 添加域&lt;br /&gt;
+在你域名的解析页面设置解析&lt;br /&gt;
+等待 github 通过验证&lt;/p&gt;
+&lt;h3 id=&#34;page设置域&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#page设置域&#34;&gt;#&lt;/a&gt; page 设置域&lt;/h3&gt;
+&lt;p&gt;在仓库设置页面自定义域选项填入你的域名&lt;br /&gt;
+在你的域名解析页面添加类型为 CNAME 的记录&lt;br /&gt;
+最后结果看起来会是这样&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;主机记录&lt;/th&gt;
+&lt;th&gt;记录类型&lt;/th&gt;
+&lt;th&gt;记录值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2dpdGh1Ym5hbWUuZ2l0aHViLmlv&#34;&gt;githubname.github.io&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;_github-pages-challenge-githubname&lt;/td&gt;
+&lt;td&gt;TXT&lt;/td&gt;
+&lt;td&gt;dd1a23fdfdfa2dda2dfd&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;note default no-icon&#34;&gt;
+&lt;p&gt;记录为 @时无需前缀，使用域名访问&lt;/p&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;域名不能访问了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#域名不能访问了&#34;&gt;#&lt;/a&gt; 域名不能访问了&lt;/h4&gt;
+&lt;p&gt;在仓库的 sources 文件夹添加一个名为 CNAME 的文件，内容填你的域名。注意文件名不能有后缀。&lt;br /&gt;
+github 自定义域名的操作会在 gh-page 生成一个 CNAME 文件，每次 action 构建页面会覆盖掉这个文件。&lt;/p&gt;
+&lt;h4 id=&#34;访问域名提示不安全&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#访问域名提示不安全&#34;&gt;#&lt;/a&gt; 访问域名提示不安全&lt;/h4&gt;
+&lt;p&gt;等待 github ssl 安全证书签发完毕。&lt;/p&gt;
+&lt;h2 id=&#34;dns加速&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dns加速&#34;&gt;#&lt;/a&gt; DNS 加速&lt;/h2&gt;
+&lt;p&gt;由于某个大型防火墙存在，github 访问需要一些设置才能访问。&lt;br /&gt;
+为了方便访问，可以使用 DNS 加速。&lt;br /&gt;
+Cloudflare 提供免费的 CDN 加速。&lt;br /&gt;
+添加你的域名，然后添加解析。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;主机记录&lt;/th&gt;
+&lt;th&gt;记录类型&lt;/th&gt;
+&lt;th&gt;记录值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2dpdGh1Ym5hbWUuZ2l0aHViLmlv&#34;&gt;githubname.github.io&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+        <category term="Blog,Hexo" scheme="http://localhost/tags/Blog-Hexo/" />
+        <updated>2023-03-10T07:11:16.000Z</updated>
     </entry>
 </feed>
