@@ -5,6 +5,7 @@ tags: Blog,Hexo
 ---
 # 关于本文
 本文从零开始教你怎么用 Hexo 生成个人博客，使用 GitHub Action 自动部署，通过 GithubPage访问。
+## Quick Start
 
 ## 环境准备
 安装 Nodejs, Git,VSCode。
