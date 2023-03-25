@@ -1,5 +1,5 @@
 ---
-title: 从零开始的Hexo
+title: Hexo安装部署流程及遇到的问题
 date: 2023-03-10 15:11:16
 tags: Blog,Hexo
 ---
@@ -7,18 +7,19 @@ tags: Blog,Hexo
 使用 Hexo 生成博客模板，自动上传 Github 并自动生成页面文件并通过GithubPage访问。
 
 ## 准备
-本地安装 [Nodejs](https://nodejs.org/), [Git](https://git-scm.com/downloads), [VSCode](https://code.visualstudio.com/)。
-平台账号准备 [GitHub](https://github.com/signup?source=login), [Cloudflare](https://dash.cloudflare.com/sign-up) 
+环境要求 [Nodejs](https://nodejs.org/), [Git](https://git-scm.com/downloads)
+需要用到的账号 [GitHub](https://github.com/signup?source=login), [Cloudflare](https://dash.cloudflare.com/sign-up) 
+工具 [VSCode](https://code.visualstudio.com/)
 
 ## Hexo 安装
-打开VSCode
- ++ Ctrl+Shift+` ++ 快捷键唤出终端。
-端运行以下命令安装hexo
+在 vs code 使用 ++ Ctrl+Shift+` ++ 快捷唤出终端。
+以下指令安装 hexo-cli
 ```bash
 npm install -g hexo-cli
 ```
+
 ### 初始化 Hexo
-完成hexo安装后,执行以下命令会在指定位置 folder 生成所需文件。
+使用以下指令,在指定文件夹生成 hexo 项目。
 ```bash
 hexo init <folder>
 npm install
@@ -146,11 +147,10 @@ jobs:
 ## 至此Hexo的Github部署基本完毕
 以下是可能会遇到的问题
 
-### GitHub页面打不开
-安装[Watt Toolkit](https://steampp.net/)
-使用它的GitHub加速
+### GitHub页面速度奇慢无比
+[Watt Toolkit](https://steampp.net/) 此工具能够提高你访问 github 页面的速度。
 
-### 我使用魔法但文件上传失败
+### 使用代理文件仍上传失败
 修改代理设置，在本地仓库根目录找到.gitconfig文件进行设置
 ```bash
 [user]
@@ -170,11 +170,15 @@ jobs:
 
 
 ## 自定义域名
-首先你需要一个域名。没有可以去阿里云，腾讯云之类的买，第一年一般都很便宜。
+需要购买一个域名。
+大多数域名商第一年都很便宜。
+例如阿里云，腾讯云之类的买。
+
 ### github添加域
 找到你的个人信息页面 > Pages > Add a domains 添加域
 在你域名的解析页面设置解析
 等待github通过验证
+
 ### page设置域
 在仓库设置页面自定义域选项填入你的域名
 在你的域名解析页面添加类型为CNAME的记录
@@ -186,22 +190,32 @@ jobs:
 :::default no-icon
 记录为@时无需前缀，使用域名访问
 :::
-#### 域名不能访问了
-在仓库的sources文件夹添加一个名为CNAME的文件，内容填你的域名。注意文件名不能有后缀。
+#### 域名不能访问
+在仓库的sources文件夹添加一个名为CNAME的文件 (不能有后缀)，填入你 page 设置的域名。
 github自定义域名的操作会在gh-page生成一个CNAME文件，每次action构建页面会覆盖掉这个文件。
 
 #### 访问域名提示不安全
 等待github ssl安全证书签发完毕。
 
 ## DNS加速
-由于某个大型防火墙存在，github访问需要一些设置才能访问。
-为了方便访问，可以使用DNS加速。
+为了防止别人在打开你的博客时显示 404，可使用DNS加速来解决这一问题。
 Cloudflare提供免费的CDN加速。
 添加你的域名,然后添加解析。
 |主机记录|记录类型|记录值|
 |------|------|------|
 |@|CNAME|githubname.github.io|
 
+## 主题
+一般来说主题都是用如下命令添加主题的。
+```bash
+git clone http//github.com/xxx/xxx.git themes/xxx
+```
+但是在 github 进行 Action 时会报错 找不到子仓库连接。
+但换成以下命令就可以了,
+```bash
+git submodule add http//github.com/xxx/xxx.git themes/xxx
+```
+这个命令会将主题添加到本地仓库的子仓库中。
 
 
 
