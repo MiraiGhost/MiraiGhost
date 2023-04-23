@@ -1,1 +1,649 @@
-<!-- build time:Sat Mar 25 2023 15:17:03 GMT+0000 (Coordinated Universal Time) --><!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/rss.xml"><link rel="alternate" type="application/atom+xml" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/atom.xml"><link rel="alternate" type="application/json" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="vue"><link rel="canonical" href="http://localhost/2023/03/22/vue/vuebasics/"><title>Vue基础 | Mirai Sea = 每个不曾起舞的日子都是对生活的辜负</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Vue基础</h1><div class="meta"><span class="item" title="创建时间：2023-03-23 00:13:21"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2023-03-23T00:13:21+08:00">2023-03-23</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>0</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>1 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Mirai Sea</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://yan2.fun/images/img/0000005.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000001.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000004.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000001.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000002.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000002.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://localhost/2023/03/22/vue/vuebasics/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="宇琪"><meta itemprop="description" content=", "></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="每个不曾起舞的日子都是对生活的辜负"></span><div class="body md" itemprop="articleBody"><div class="tags"><a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2023-03-25 23:16:35" itemprop="dateModified" datetime="2023-03-25T23:16:35+08:00">2023-03-25</time> </span><span id="2023/03/22/vue/vuebasics/" class="item leancloud_visitors" data-flag-title="Vue基础" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="宇琪 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="宇琪 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="宇琪 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>宇琪 <i class="ic i-at"><em>@</em></i>每个不曾起舞的日子都是对生活的辜负</li><li class="link"><strong>本文链接：</strong> <a href="http://localhost/2023/03/22/vue/vuebasics/" title="Vue基础">http://localhost/2023/03/22/vue/vuebasics/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2023/03/14/net/addDatabase/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;yan2.fun&#x2F;images&#x2F;img&#x2F;0000006.jpg" title=".net core应用使用数据库"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i></span><h3>.net core应用使用数据库</h3></a></div><div class="item right"><a href="/2023/03/25/hello-world/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;yan2.fun&#x2F;images&#x2F;img&#x2F;0000005.jpg" title="Hello World"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i></span><h3>Hello World</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="宇琪" data-src="/images/avatar.jpg"><p class="name" itemprop="name">宇琪</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">4</span> <span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">3</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2023/03/14/net/addDatabase/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2023/03/25/hello-world/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/22/vue/vuebasics/" title="Vue基础">Vue基础</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/25/hello-world/" title="Hello World">Hello World</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/10/tools/hexo/" title="Hexo安装部署流程及遇到的问题">Hexo安装部署流程及遇到的问题</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/14/net/addDatabase/" title=".net core应用使用数据库">.net core应用使用数据库</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; <span itemprop="copyrightYear">2023</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">宇琪 @ Mirai Sea</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">6k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">6 分钟</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"2023/03/22/vue/vuebasics/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script></body></html><!-- rebuild by hrmmi -->
+<!-- build time:Sun Apr 23 2023 09:24:34 GMT+0000 (Coordinated Universal Time) --><!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/rss.xml"><link rel="alternate" type="application/atom+xml" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/atom.xml"><link rel="alternate" type="application/json" title="每个不曾起舞的日子都是对生活的辜负" href="http://localhost/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="vue"><link rel="canonical" href="http://localhost/2023/03/22/vue/vuebasics/"><title>Vue | Mirai Sea = 每个不曾起舞的日子都是对生活的辜负</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Vue</h1><div class="meta"><span class="item" title="创建时间：2023-03-23 00:13:21"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2023-03-23T00:13:21+08:00">2023-03-23</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>13k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>12 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Mirai Sea</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://yan2.fun/images/img/0000004.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000005.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000003.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000005.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000001.jpg"></li><li class="item" data-background-image="https://yan2.fun/images/img/0000002.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="http://localhost/2023/03/22/vue/vuebasics/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="宇琪"><meta itemprop="description" content=", "></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="每个不曾起舞的日子都是对生活的辜负"></span><div class="body md" itemprop="articleBody"><h1 id="笔记"><a class="anchor" href="#笔记">#</a> 笔记</h1><h2 id="脚手架文件结构"><a class="anchor" href="#脚手架文件结构">#</a> 脚手架文件结构</h2><h2 id="关于不同版本的vue"><a class="anchor" href="#关于不同版本的vue">#</a> 关于不同版本的 Vue</h2><pre><code>1.vue.js与vue.runtime.xxx.js的区别：
+    1.vue.js是完整版的Vue，包含：核心功能 + 模板解析器。
+    2.vue.runtime.xxx.js 是运行版的Vue，只包含：核心功能；没有模板解析器。
+2.因为vue.runtime.xxx.js没有模板解析器，所以不能使用template这个配置项，需要使用render函数接收到的createElement函数去指定具体内容。
+</code></pre><h2 id="vueconfigjs配置文件"><a class="anchor" href="#vueconfigjs配置文件">#</a> vue.config.js 配置文件</h2><pre><code>1.使用vue inspect &gt; output.js可以查看到Vue脚手架的默认配置。
+2.使用vue.config.js可以对脚手架进行个性化定制，详情见：https://cli.vuejs.org/zh
+</code></pre><h2 id="ref属性"><a class="anchor" href="#ref属性">#</a> ref 属性</h2><pre><code>1.被用来给元素或子组件注册引用信息(id的替代者)
+2.应用在HTML标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象(vc)
+3.使用方式：
+    打标识：&lt;h1 ref=&quot;xxx&quot;&gt;.....&lt;/h1&gt; 或 &lt;School ref=&quot;xxx&quot;&gt;&lt;/School&gt;
+    获取：this.$refs.xxx
+</code></pre><h2 id="配置项props"><a class="anchor" href="#配置项props">#</a> 配置项 props</h2><pre><code>功能：让组件接收外部传过来的数据
+    (1).传递数据：
+        &lt;Demo name=&quot;xxx&quot; /&gt;
+    (2).接收数据：
+        第一种方式(只接收)：
+            props:['name']
+        
+        第二种方式(限制类型)：
+            props:&#123;
+                name:String
+            &#125;
+
+        第三种方式(限制类型、限制必要性、指定默认值)
+            props:&#123;
+                name:&#123;
+                    type:String, // 类型
+                    required:true, // 必要性
+                    default:'张三' // 默认值
+                &#125;
+            &#125;
+备注：props是只读的，Vue底层会检测你props的修改，如果进行了修改，就会发生警 告，若业务需求确实要修改，那么请复制props的内容到data中一份，然后去修改data中的数据
+</code></pre><h2 id="mixin混入"><a class="anchor" href="#mixin混入">#</a> mixin (混入)</h2><pre><code>功能：可以把多个组件共用的配置提取成一个混入对象
+使用方式：
+    第一步定义混合，例如
+        &#123;
+            data()&#123;...&#125;,
+            methods:&#123;...&#125;
+            ...
+        &#125;
+    第二部使用混入，例如：
+        (1).全局混入：Vue.mixin(xxx)
+        (2).局部混入：mixins:[xxx]
+</code></pre><h2 id="插件"><a class="anchor" href="#插件">#</a> 插件</h2><pre><code>功能：用于增强Vue
+本质：包含install方法的个对象，install的第一个参数是Vue，第二个参数是插件使用者传递的数据。
+定义插件：
+    对象.install = function (Vue,options)&#123;
+        // 1.添加全局过滤器
+        Vue.filter(....)
+
+        //2.添加全局指令
+        Vue.directive(....)
+
+        //3.配置全局混入(合)
+        Vue.mixin(....)
+
+        //4.添加实例方法
+        Vue.prototype.$MyMethod = function () &#123;...&#125;
+        Vue.prototype.$myProperty = xxx
+    &#125;
+使用插件：Vue.use()
+</code></pre><h2 id="scoped样式"><a class="anchor" href="#scoped样式">#</a> scoped 样式</h2><pre><code>作用：让样式在局部生效，防止冲突。
+写法：&lt;style scoped&gt;
+</code></pre><h2 id="总结todolist案例"><a class="anchor" href="#总结todolist案例">#</a> 总结 TodoList 案例</h2><pre><code>1.组件化编码流程：
+    (1).拆分静态组件：组件要按功能点拆分，命名不要与html元素冲突。 
+    (2).实现动态组件：考虑好数据存放位置，数据是一个组件在用，还是一些组件在用：
+        1).一个组件在用：放在组件自生即可。
+        2).一些组件在用：放在他们共同的父组件上(状态提升)。
+    (3).实现交互：从绑定事件开始。
+
+2.props适用于：
+    (1).父组件 ==&gt; 子组件 通信
+    (2).子组件 ==&gt; 父组件 通信 (要求父先给子一个函数)
+
+3.使用v-model时要切记：v-model绑定的值不能是props传过来的值，因为props是不可以修改的！
+
+4.props传过来的若是对象类型的值，修改对象中的属性时Vue不会报错，但不推荐这样做。
+</code></pre><h2 id="webstorage"><a class="anchor" href="#webstorage">#</a> webStorage</h2><pre><code>1.存储内存大小一般至此5MB左右(不同浏览器可能还不一样)
+2.浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。
+3.相关API:
+    1.xxxxStorage.setItem('key','value');
+        该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+    2.xxxxStorage.getItem('person');
+        该方法接受一个键名作为参数，返回键名对应的值。
+    3.xxxxStorage.removeItem('key');
+        该方法接受一个键名作为参数，并把该键值对从存储中删除。
+    4.xxxxStorage.cleat()
+        该方法会清空存储中所有的值。
+    
+4.备注：
+    1.SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+    2.LocalStorage存储的内容，需要手动清除才会小时。
+    3.xxxxStorage.getItem(xxx)如果xxx对应的value获取不到，那么getItem的返回值是null。
+    4.JSON.parse(null)的结果依然是null。
+</code></pre><h2 id="组件的自定义事件"><a class="anchor" href="#组件的自定义事件">#</a> 组件的自定义事件</h2><pre><code>1.一种组件间通信的方式，适用于：子组件 =&gt; 父组件
+2.使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件(事件的回调在A中)。
+3.绑定自定义事件：
+    1.第一种方式，在父组件中：&lt;Demo @mirai=&quot;test&quot;/&gt; 或 &lt;Demo v-on:mirai=&quot;test&quot;/&gt;
+    2.第二种方式：在父组件中：
+    &lt;Demo ref=&quot;demo&quot;/&gt;
+    ......
+    mounted()&#123;
+        this.$ref.xxx.$on('mirai',this.test)
+    &#125;
+    3.若想让自定义事件只能触发一次，可以使用once修饰符,或$once方法。
+4.触发自定义事件：this.$emit('mirai',数据)
+5.解绑自定义事件：this.$off('mirai')
+6.组件上也可以绑定原生DOM事件，需要使用native修饰符。
+7.注意：通过this.$refs.xxx.$on('mirai',回调)绑定自定义事件时，回调要么配置在methods中，要么用箭头函数，否则this指向会出问题！
+</code></pre><h2 id="全局事件总线-globaleventbus"><a class="anchor" href="#全局事件总线-globaleventbus">#</a> 全局事件总线 (GlobalEventBus)</h2><pre><code>1.一种组件间通信的方式，适用于任意组件间通信。
+
+2.安装全局事件总线：
+new Vue(&#123;
+    ...
+    beforeCreate()&#123;
+        Vue.prototype.$bus = this // 安装全局事件总线，$bus就是当前应用的vm
+    &#125;,
+    ...
+&#125;)
+
+3.使用事件总线：
+    1.接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的回调留在A组件自身。
+    methods()&#123;
+        demo(data)&#123;......&#125;
+    &#125;
+    ......
+    mounted()&#123;
+        this.$bus.$on('xxxx',this.demo)
+    &#125;
+    2.提供数据：this.$bus.$emit('xxxx',this.demo)
+</code></pre><h2 id="消息订阅与发布pubsub"><a class="anchor" href="#消息订阅与发布pubsub">#</a> 消息订阅与发布 (pubsub)</h2><pre><code>1.一种组件间通信的方式，适用于任意组件间通信。
+2.使用步骤：
+    1.安装pubsub：npm i pubsub-js
+    2.引入：import pubsub from 'pubsub-js'
+    3.接收数据：A组件想要接收数据，则在A组件中订阅消息，订阅的回调留在A组件自身。
+    methods:&#123;
+        demo(data)&#123;......&#125;
+    &#125;
+    ......
+    mounted()&#123;
+        this.pid = pubsub.subscribe('xxx',this.demo) // 订阅消息
+    &#125;
+4.提供数据：pubsub.publish('xxx',数据)
+5.最好在beforeDestroy钩子中，用PubSub.unsubscribe(pid)去取消订阅。
+</code></pre><h2 id="nexttick"><a class="anchor" href="#nexttick">#</a> nextTick</h2><pre><code>1.语法：this.$nextTick(回调函数)
+2.作用：在下一次 DOM 更新结束后执行指定的回调。
+3.什么时候用：当改变数据后，要基于更新后的新 DOM 进行某些操作时，要在 nextTick 所指定的回调函数中执行。
+</code></pre><h2 id="vue封装的过渡与动画"><a class="anchor" href="#vue封装的过渡与动画">#</a> Vue 封装的过渡与动画</h2><pre><code>1.作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。
+2.图示：
+
+3.写法：
+    1.准备好样式：
+        元素进入的样式：
+            1.v-enter：进入的起点
+            2.v-enter-active：进入的过程中
+            3.v-enter-to：进入的终点
+        
+        元素离开的样式：
+            1.v-leave：离开的起点
+            2.v-leave-active：离开的过程中
+            3.v-leave-to：离开的终点
+    
+    2.使用&lt;transition&gt;包裹要过渡的元素，并配置name属性：
+        &lt;transition name=&quot;hello&quot;&gt;
+            &lt;h1 v-show=&quot;isShow&quot;&gt;你好啊&lt;/h1&gt;
+        &lt;/transition&gt;
+    
+    3.备注：若有多个元素需要过渡，则需要使用：&lt;transition-group&gt;，且每个元素都要指定key值。
+</code></pre><h2 id="vue脚手架配置代理"><a class="anchor" href="#vue脚手架配置代理">#</a> Vue 脚手架配置代理</h2><h3 id="方法一"><a class="anchor" href="#方法一">#</a> 方法一</h3><pre><code>在vue.config.js中添加如下配置:
+    devServer:&#123;
+        proxy:&quot;http://localhost:5000&quot;
+    &#125;
+说明：
+    1.优点：配置简单，请求资源时直接发给前端(8080)即可。
+    2.却点：不能配置多个代理，不能灵活的控制请求是否走代理。
+    3.工作方式：若按照上述配置代理，当请求了前端不存在的资源时，那么该请求会转发给服务器(优先匹配前端资源)
+</code></pre><h3 id="方法二"><a class="anchor" href="#方法二">#</a> 方法二</h3><pre><code>编写vue.config.js配置具体代理规则：
+    module.exports=&#123;
+        devServer:&#123;
+            proxy:&#123;
+                '/api':&#123; // 匹配所有以'/api'开头的请求路径
+                    target:'http://localhost:5000',  // 代理目标的基础路径
+                    changeOrigin:true,
+                    pathRewrite:&#123;'^/api':''&#125;
+                &#125;,
+                '/api2':&#123;
+                    target:'http://localhost:5001',
+                    changeOrigin:true,
+                    pathRewrite:&#123;'^/api':''&#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    /*
+        changeOrigin设置为true时，服务器接收到的请求头中的host为：localhost:5000
+        changeOrigin设置为false时，服务器接收到的请求头中的host为：localhost:8080
+        cahngeOrigin默认值为true
+     */
+
+说明：
+    1.优点：可以配置多个代理，且可以灵活的控制请求是否走代理。
+    2.缺点：配置略微繁琐，请求资源时必须加前缀。
+</code></pre><h2 id="插槽"><a class="anchor" href="#插槽">#</a> 插槽</h2><pre><code>1.作用：让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，适用于 父组件===&gt;子组件。
+2.分类：默认插槽、具名插槽、作用域插槽
+3.使用方式：
+    1.默认插槽：
+        父组件中：
+            &lt;Category&gt;
+                &lt;div&gt;html结构1&lt;/div&gt;
+            &lt;/Category&gt;
+        子组件中：
+            &lt;template&gt;
+                &lt;div&gt;
+                    &lt;!-- 定义插槽 --&gt;
+                    &lt;slot&gt;默认插槽内容...&lt;/slot&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+    
+    2.具名插槽：
+        父组件中：
+            &lt;Category&gt;
+                &lt;template slot=&quot;center&quot;&gt;
+                    &lt;div&gt;html结构1&lt;/div&gt;
+                &lt;/template&gt;
+
+                &lt;template v-slot:footer&gt;
+                    &lt;div&gt;html结构2&lt;/div&gt;
+                &lt;/template&gt;
+            &lt;/Category&gt;
+        子组件中：
+            &lt;template&gt;
+                &lt;div&gt;
+                    &lt;!-- 定义插槽 --&gt;
+                    &lt;slot name=&quot;center&quot;&gt;插槽默认内容&lt;/slot&gt;
+                    &lt;slot name=&quot;footer&quot;&gt;插槽默认内容&lt;/slot&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+    
+    3.作用域插槽：
+        1.理解：数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。(games数据在Category组件中，但使用数据所遍历出来的结构由App组件决定)
+        2.具体编码：
+            父组件中：
+                &lt;Category&gt;
+                    &lt;template scope=&quot;scopeData&quot;&gt;
+                        &lt;!-- 生成的是ul列表 --&gt;
+                        &lt;ul&gt;
+                            &lt;li v-for=&quot;g in scopeData.games&quot; :key=&quot;g&quot;&gt;&#123;&#123;g&#125;&#125;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/template&gt;
+                &lt;/Category&gt;
+
+                &lt;Category&gt;
+                    &lt;template scope=&quot;scopeData&quot;&gt;
+                        &lt;!-- 生成的是h4标题 --&gt;
+                        &lt;h4 v-for=&quot;g in scopeData.games&quot; :key=&quot;g&quot;&gt;&#123;&#123;g&#125;&#125;&lt;/h4&gt;
+                    &lt;/template&gt;
+                &lt;/Category&gt;
+            子组件中：
+                &lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;/h3&gt;
+                &lt;template&gt;
+                    &lt;div&gt;
+                        &lt;slot :games=&quot;games&quot;&gt;&lt;slot&gt;
+                    &lt;/div&gt;
+                &lt;/template&gt;
+
+                &lt;script&gt;
+                    export default&#123;
+                        name:'Category',
+                        props:['title'],
+                        // 数据在子组件自身
+                        data()&#123;
+                            return&#123;
+                                games:['只狼','猫','原子之心','森林之子2']
+                            &#125;
+                        &#125;
+                    &#125;
+                &lt;/script&gt;
+</code></pre><h2 id="vuex"><a class="anchor" href="#vuex">#</a> Vuex</h2><pre><code>1.概念：
+    在 Vue 中实现集中式状态(数据)管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式管理(读/写),也是一种组件间通信的方式，且适用与任意组件间通信。
+2.何时使用？
+    多个组件需要共享数据时。
+3.搭建vuex环境
+    1.创建文件：/src/store/index.js
+        // 引入 Vue 核心
+        import Vue from 'vue'
+        // 引入 Vuex
+        import Vuex from 'vuex'
+        // 应用 Vue 插件
+        Vue.use(Vuex)
+
+        // 准备action对象————响应组件中用户的动作
+        const action = &#123;&#125;
+        // 准备mutions对象————修改state中的数据
+        const mutions = &#123;&#125;
+        // 准备state对象————保存具体的数据
+        const state = &#123;&#125;
+
+        // 创建并暴露store
+        export default = new Vuex.Store(&#123;
+            action,
+            mutions,
+            state
+        &#125;)
+    
+    2.在main.js中创建vm时传入store配置项
+        ...
+        // 引入 store
+        import store from './store'
+        ...
+        // 创建vm
+        new Vue(&#123;
+            el:'#app',
+            render: h =&gt; h(App),
+            store
+        &#125;)
+4.基本使用
+    1.初始化数据，配置action，配置mutactions，此操作文件store.js
+        // 引入 Vue 核心库
+        import Vue from 'vue'
+        // 引入 Vuex
+        import Vuex from 'vuex'
+        
+        //引用 Vuex
+        Vue.use(Vuex)
+
+        const action = &#123;
+            // 响应组件中加的动作
+            jia(context,value)&#123;
+                context.commit('JIA',value)
+            &#125;
+        &#125;
+
+        const mutactions = &#123;
+            JIA(state,value)&#123;
+                state.sum += value
+            &#125;
+        &#125;
+
+        // 初始化数据
+        const state = &#123;
+            sum:0
+        &#125;
+
+        // 创建并暴露 store
+        export default new Vuex.Store(&#123;
+            actions,
+            mutactions,
+            state
+        &#125;)
+    
+    2.组件中读取vuex中的数据：$store.state.sum
+    3.组件中修改vuex中的数据：$store.dispatch('action中的方法名',数据) 或 $store.commit('mutaction中的方法名',数据)
+    备注：若没有网络请求或其他业务逻辑，组件中也可以越过 actions，即不写 dispatch，直接写 commit
+5.getters的使用
+    1.概念：当 state 中的数据需要经过加工后再使用时，可以使用 getters 加工。
+    2.在 store.js 中追加 getters 配置
+        ...
+        const getters = &#123;
+            bigSum(state)&#123;
+                return state.sum * 10
+            &#125;
+        &#125;
+
+        // 创建并暴露 store
+        export default new Vuex.Store(&#123;
+            ...
+            getters
+        &#125;)
+    3.组件中读取数据：$store.getters.bigSum
+
+6.四个 map 方法使用
+    1.mapState方法：用于帮我们映射state中的数据为计算属性
+        computed:&#123;
+            // 借助 mapState 生成计算属性：sum、student、subject (对象写法)
+            ...mapState(&#123;sum:'sum',student:'student',subject:'subject'&#125;)
+
+            // 借助 mapState 生成计算属性：sum、student、subject (数组写法)
+            ...mapState(['sum','student','subject'])
+        &#125;
+    2.mapGetters方法：用于帮我们映射getters中的数据为计算属性
+        computed:&#123;
+            // 借助 mapGetters 生成计算属性：bigSum (对象写法)
+            ...mapGetters(&#123;bigSum:'bigSum'&#125;)
+
+            // 借助 mapGetters 生成计算属性：bigSum (对象写法)
+            ...mapGetters(['bigSum'])
+        &#125;
+    3.mapActions方法：用于帮我们生成与actions对话的方法，即：包含$store.dispatch(xxx)的函数
+        methods:&#123;
+            // 靠 mapActions 生成：incrementOdd、incrementWait (对象形式)
+            ...mapActions(&#123;incrementOdd:'jiaOdd',incrementWait:'jiaWait'&#125;)
+
+            // 靠 mapActions 生成：incrementOdd、incrementWait (数组形式)
+            ...mapActions(['JiaOdd','JiaWait'])
+        &#125;
+        备注：mapActions 与 mapMutactions 使用时，若要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+</code></pre><h2 id="路由"><a class="anchor" href="#路由">#</a> 路由</h2><pre><code>1.理解：一个路由(route)就是一组映射关系(key-value)，多个路由需要路由器(router)进行管理。
+2.前端路由：key是路径，value是组件
+</code></pre><h3 id="1基本使用"><a class="anchor" href="#1基本使用">#</a> 1. 基本使用</h3><pre><code>1.安装vue-router，命令：npm i vue-router
+2.应用插件：Vue.use(VueRouter)
+3.编写router配置项
+    // 引入VueRouter
+    import VueRouter from 'vue-router'
+    // 引入路由组件
+    import About from '../components/About'
+    import Home from '../components/Home'
+
+    // 创建router实例对象，去管理一套路由规则
+    const router = new VueRouter(&#123;
+        routes:[
+            &#123;
+                path:'/about',
+                component:About
+            &#125;,
+            &#123;
+                path:'/home',
+                component:Home
+            &#125;
+        ]
+    &#125;)
+
+    // 暴露 router
+    export default router
+
+4.实现切换(active-class可配置高亮样式)
+    &lt;router-link active-class='active' to='/path'&gt;&lt;/router-link&gt;
+5.指定展示位置
+    &lt;router-view&gt;&lt;/router-view&gt;
+</code></pre><h3 id="2几个注意点"><a class="anchor" href="#2几个注意点">#</a> 2. 几个注意点</h3><pre><code>1.路由组件通常存放在pages文件夹，一般组件通常存放在components文件夹
+2.通过切换，&quot;隐藏&quot;了路由组件，默认是被销毁的，需要的时候再去挂载。
+3.每个组件都有自己的$route属性，里面存储着自己的路由信息。
+3.整个应用只有一个router，可以通过组件里的$router属性获取到。
+</code></pre><h3 id="3多级路由"><a class="anchor" href="#3多级路由">#</a> 3. 多级路由</h3><pre><code>1.配置路由规则，使用children配置项：
+    routes:[
+        &#123;
+            path:'/about',
+            component:About,
+        &#125;,
+        &#123;
+            path:'/home',
+            component:Home,
+            children:[ // 通过 children 配置子级路由
+                &#123;
+                    path:'news', // 此处一定不要写 /new
+                    component:News
+                &#125;,
+                &#123;
+                    path:'message', // 此处一定不要写 /message
+                    component:Message
+                &#125;
+            ]
+        &#125;
+    ]
+2.跳转(要写完整路径)
+    &lt;router-link  to=&quot;/home/news&quot;&gt;News&lt;/router-link&gt;
+</code></pre><h3 id="4路由的query参数"><a class="anchor" href="#4路由的query参数">#</a> 4. 路由的 query 参数</h3><pre><code>1.传递的参数
+    &lt;!-- 跳转并携带query参数，to的字符串写法 --&gt;
+    &lt;router-link :to=&quot;/home/message/detail?id=123&amp;title=你好&quot;&gt;跳转&lt;/router-link&gt;
+
+    &lt;!-- 跳转并携带query参数，to的字符串写法 --&gt;
+    &lt;router-link :to=&quot;&#123;
+        path:'/home/message/detail',
+        query:&#123;
+            id=123,
+            title='你好'
+        &#125;
+    &#125;&quot;&gt;
+        跳转
+    &lt;/router-link&gt;
+2.接收参数：
+    $route.query.id
+    $route.query.title
+</code></pre><h3 id="5命名路由"><a class="anchor" href="#5命名路由">#</a> 5. 命名路由</h3><pre><code>1.作用：可以简化路由的跳转。
+2.如何使用
+    1.给路由命名：
+        &#123;
+            path:'/demo',
+            component:Demo,
+            children:[
+                &#123;
+                    path:'test',
+                    component:Test,
+                    children:[
+                        &#123;
+                            name:'hello', // 给路由命名
+                            path:'welcome',
+                            component:Hello
+                        &#125;
+                    ]
+                &#125;
+            ]
+        &#125;
+2.简化跳转：
+    &lt;!-- 简化前，需要写完整的路径 --&gt;
+    &lt;router-link to=&quot;/demo/test/welcome&quot;&gt;跳转&lt;/router-link&gt;
+
+    &lt;!-- 简化后直接通过名字跳转 --&gt;
+    &lt;router-link :to=&quot;&#123;name:hello&#125;&quot;&gt;跳转&lt;/router-link&gt;
+
+    &lt;!-- 简化写法配合传递参数 --&gt;
+    &lt;router-link :to=&quot;&#123;
+        name:'hello',
+        query:&#123;
+            id:123,
+            title:'你好'
+        &#125;
+    &#125;&quot;&gt;
+        跳转
+    &lt;/touter-link&gt;
+</code></pre><h3 id="6路由的params参数"><a class="anchor" href="#6路由的params参数">#</a> 6. 路由的 params 参数</h3><pre><code>1.配置路由，声明接收params参数
+    &#123;
+        path:'/home',
+        component:Home,
+        children:[
+            &#123;
+                path:'news',
+                component:News
+            &#125;,
+            &#123;
+                component:Message,
+                children:[
+                    &#123;
+                        name:'xiangqing',
+                        path:'detail/:id/:title', // 使用占位符声明接收params参数
+                        component:Detail
+                    &#125;
+                ]
+            &#125;
+        ]
+    &#125;
+2.传递参数
+    &lt;!-- 跳转并携带params参数，to的字符串写法 --&gt;
+    &lt;router-link :to='`/home/message/detail/123/你好`'&gt;跳转&lt;/router-link&gt;
+
+    &lt;!-- 跳转并携带params参数，to的对象写法 --&gt;
+    &lt;router-link :to='&#123;
+        name:'xiangqing',
+        params:&#123;
+            id:123,
+            title:'你好'
+        &#125;
+    &#125;'&gt;
+        跳转
+    &lt;/router-link&gt;
+    特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！
+3.接收参数：
+    $route.params.id
+    $route.params.title
+</code></pre><h3 id="7路由的props配置"><a class="anchor" href="#7路由的props配置">#</a> 7. 路由的 props 配置</h3><pre><code>作用：让路由组件更方便收到参数
+    &#123;
+        name:'xiangqing',
+        path:'detail/:id',
+        component:Detail,
+
+        //第一种写法:props值为对象，该对象中所有的key-value的组合都会通过props传给Detail组件
+        // props:&#123;a:123&#125;
+
+        // 第二种写法:props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+        // props:true
+
+        // 第三种写法:props值为函数，该函数返回的对象中的每一组key-value都会通过props传给Detail组件
+        props(route)&#123;
+            return&#123;
+                id:route.query.id,
+                title:route.query.title
+            &#125;
+        &#125;
+    &#125;
+</code></pre><h3 id="8router-link的replace属性"><a class="anchor" href="#8router-link的replace属性">#</a> 8.&lt;router-link&gt; 的 replace 属性</h3><pre><code>1.作用：控制路由跳转时操作浏览器历史记录的模式。
+2.浏览器的历史记录由两种写入方式：分别为push和replace，push是追加历史记录，replace是替换当前记录。路由跳转默认为push。
+3.如何开启replace模式：&lt;router-link replace ...&gt;News&lt;/router-link&gt;
+</code></pre><h3 id="9编程式路由导航"><a class="anchor" href="#9编程式路由导航">#</a> 9. 编程式路由导航</h3><pre><code>1.作用：不借助&lt;router-link&gt;实现路由跳转，让路由跳转更加灵活
+2.具体编码：
+    //$router的两个API
+    this.$router.push(&#123;
+        name:'xiangqing',
+        params:&#123;
+            id:xxx,
+            title:xxx
+        &#125;
+    &#125;)
+
+    this.$router.replace(&#123;
+        name:'xiangqing',
+        params:&#123;
+            id:xxx,
+            title:xxx
+        &#125;
+    &#125;)
+
+    this.$router.forward() //前进
+    this.$router.back() //后退
+    this.$router.go() //可前进也可以后退
+</code></pre><h3 id="10缓存路由组件"><a class="anchor" href="#10缓存路由组件">#</a> 10. 缓存路由组件</h3><pre><code>1.作用：让不展示的路由组件保持挂载，不被销毁。
+2.具体编码：
+    &lt;keep-alive include='News'&gt;
+        &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;/keep-alive&gt;
+</code></pre><h3 id="11两个新的生命周期钩子"><a class="anchor" href="#11两个新的生命周期钩子">#</a> 11. 两个新的生命周期钩子</h3><pre><code>1.作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
+2.具体名字：
+    1.actived路由组件被激活时触发。
+    2.deactived路由组件失活时触发。
+</code></pre><h3 id="12路由守卫"><a class="anchor" href="#12路由守卫">#</a> 12. 路由守卫</h3><pre><code>1.作用：对路由进行权限控制
+2.分类：全局守卫、独享守卫、组件内守卫
+3.全局守卫：
+    //全局前置守卫，初始化时执行、每次路由切换前执行
+    router.beforeEach((to,from,next)=&gt;&#123;
+        if(to.meta.isAuth)&#123; //判断当前路由是否需要进行权限控制
+            if(localStorage.getItem('school') === 'qinghua')&#123; //权限控制的具体规则
+                next() //放行
+            &#125;else&#123;
+                alert('暂无权查看')
+                // next(&#123;name:'qinghua'&#125;)
+            &#125;
+        &#125;else&#123;
+            next() //放行
+        &#125;
+    &#125;)
+
+    //全局后置守卫，初始化时执行、每次路由切换后执行
+    router.afterEach(()=&gt;&#123;
+        if(to.meta.title)&#123;
+            document.title = to.meta.title //修改网页title
+        &#125;else&#123;
+            document.title = 'vue_test'
+        &#125;
+    &#125;)
+
+4.独享守卫
+    beforeEnter:(to,from,next)&#123;
+        if(to.meta.isAuth)&#123; //判断当前路由是否需要进行权限控制
+            if(localStorage.getItem('school') === 'qinghua')&#123;
+                next()
+            &#125;else&#123;
+                alert('暂无权限查看')
+                // next(&#123;name:'qinghua'&#125;)
+            &#125;
+        &#125;else&#123;
+            next()
+        &#125;
+    &#125;
+
+5.组件内守卫
+    //进入守卫，通过路由规则，进入该组件时被调用
+    beforeRouterEnter(to,from,next)&#123;
+    &#125;,
+    //离开守卫，通过路由规则，离开组件时被调用
+    beforeRouterLeave(to,from,next)&#123;
+    &#125;</code></pre><div class="tags"><a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2023-04-23 17:24:07" itemprop="dateModified" datetime="2023-04-23T17:24:07+08:00">2023-04-23</time> </span><span id="2023/03/22/vue/vuebasics/" class="item leancloud_visitors" data-flag-title="Vue" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="宇琪 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="宇琪 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="宇琪 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>宇琪 <i class="ic i-at"><em>@</em></i>每个不曾起舞的日子都是对生活的辜负</li><li class="link"><strong>本文链接：</strong> <a href="http://localhost/2023/03/22/vue/vuebasics/" title="Vue">http://localhost/2023/03/22/vue/vuebasics/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2023/03/14/net/EFCore/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;yan2.fun&#x2F;images&#x2F;img&#x2F;0000002.jpg" title=".net使用EFCore"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i></span><h3>.net使用EFCore</h3></a></div><div class="item right"><a href="/2023/04/23/vue/pinia/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;yan2.fun&#x2F;images&#x2F;img&#x2F;0000002.jpg" title="pinia安装和使用"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i></span><h3>pinia安装和使用</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">脚手架文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E7%9A%84vue"><span class="toc-number">1.2.</span> <span class="toc-text">关于不同版本的 Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vueconfigjs%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">vue.config.js 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">ref 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9props"><span class="toc-number">1.5.</span> <span class="toc-text">配置项 props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mixin%E6%B7%B7%E5%85%A5"><span class="toc-number">1.6.</span> <span class="toc-text">mixin (混入)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scoped%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.8.</span> <span class="toc-text">scoped 样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93todolist%E6%A1%88%E4%BE%8B"><span class="toc-number">1.9.</span> <span class="toc-text">总结 TodoList 案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webstorage"><span class="toc-number">1.10.</span> <span class="toc-text">webStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.11.</span> <span class="toc-text">组件的自定义事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF-globaleventbus"><span class="toc-number">1.12.</span> <span class="toc-text">全局事件总线 (GlobalEventBus)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E4%B8%8E%E5%8F%91%E5%B8%83pubsub"><span class="toc-number">1.13.</span> <span class="toc-text">消息订阅与发布 (pubsub)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nexttick"><span class="toc-number">1.14.</span> <span class="toc-text">nextTick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E5%B0%81%E8%A3%85%E7%9A%84%E8%BF%87%E6%B8%A1%E4%B8%8E%E5%8A%A8%E7%94%BB"><span class="toc-number">1.15.</span> <span class="toc-text">Vue 封装的过渡与动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E8%84%9A%E6%89%8B%E6%9E%B6%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">1.16.</span> <span class="toc-text">Vue 脚手架配置代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-number">1.16.1.</span> <span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-number">1.16.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD"><span class="toc-number">1.17.</span> <span class="toc-text">插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex"><span class="toc-number">1.18.</span> <span class="toc-text">Vuex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">1.19.</span> <span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.19.1.</span> <span class="toc-text">1. 基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E5%87%A0%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.19.2.</span> <span class="toc-text">2. 几个注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E5%A4%9A%E7%BA%A7%E8%B7%AF%E7%94%B1"><span class="toc-number">1.19.3.</span> <span class="toc-text">3. 多级路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E8%B7%AF%E7%94%B1%E7%9A%84query%E5%8F%82%E6%95%B0"><span class="toc-number">1.19.4.</span> <span class="toc-text">4. 路由的 query 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="toc-number">1.19.5.</span> <span class="toc-text">5. 命名路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E8%B7%AF%E7%94%B1%E7%9A%84params%E5%8F%82%E6%95%B0"><span class="toc-number">1.19.6.</span> <span class="toc-text">6. 路由的 params 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E8%B7%AF%E7%94%B1%E7%9A%84props%E9%85%8D%E7%BD%AE"><span class="toc-number">1.19.7.</span> <span class="toc-text">7. 路由的 props 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8router-link%E7%9A%84replace%E5%B1%9E%E6%80%A7"><span class="toc-number">1.19.8.</span> <span class="toc-text">8.&lt;router-link&gt; 的 replace 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA"><span class="toc-number">1.19.9.</span> <span class="toc-text">9. 编程式路由导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6"><span class="toc-number">1.19.10.</span> <span class="toc-text">10. 缓存路由组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="toc-number">1.19.11.</span> <span class="toc-text">11. 两个新的生命周期钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB"><span class="toc-number">1.19.12.</span> <span class="toc-text">12. 路由守卫</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="宇琪" data-src="/images/avatar.jpg"><p class="name" itemprop="name">宇琪</p><div class="description" itemprop="description"></div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">5</span> <span class="name">文章</span></a></div><div class="item tags"><a href="/tags/"><span class="count">3</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2023/03/14/net/EFCore/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2023/04/23/vue/pinia/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/14/net/EFCore/" title=".net使用EFCore">.net使用EFCore</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/22/vue/vuebasics/" title="Vue">Vue</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/04/23/vue/pinia/" title="pinia安装和使用">pinia安装和使用</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/03/10/tools/hexo/" title="Hexo安装部署流程及遇到的问题">Hexo安装部署流程及遇到的问题</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2023/04/23/hello-world/" title="Hello World">Hello World</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; <span itemprop="copyrightYear">2023</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">宇琪 @ Mirai Sea</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">21k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">19 分钟</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"2023/03/22/vue/vuebasics/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script></body></html><!-- rebuild by hrmmi -->

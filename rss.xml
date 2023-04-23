@@ -10,13 +10,13 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sat, 25 Mar 2023 15:16:35 +0000</pubDate>
-        <lastBuildDate>Sat, 25 Mar 2023 15:16:35 +0000</lastBuildDate>
+        <pubDate>Sun, 23 Apr 2023 09:24:07 +0000</pubDate>
+        <lastBuildDate>Sun, 23 Apr 2023 09:24:07 +0000</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://localhost/2023/03/25/hello-world/</guid>
+            <guid isPermalink="true">http://localhost/2023/04/23/hello-world/</guid>
             <title>Hello World</title>
-            <link>http://localhost/2023/03/25/hello-world/</link>
-            <pubDate>Sat, 25 Mar 2023 15:16:35 +0000</pubDate>
+            <link>http://localhost/2023/04/23/hello-world/</link>
+            <pubDate>Sun, 23 Apr 2023 09:24:07 +0000</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
@@ -30,31 +30,764 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://localhost/2023/04/23/vue/pinia/</guid>
+            <title>pinia安装和使用</title>
+            <link>http://localhost/2023/04/23/vue/pinia/</link>
+            <pubDate>Sun, 23 Apr 2023 07:23:01 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;pinia&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pinia&#34;&gt;#&lt;/a&gt; Pinia&lt;/h2&gt;
+&lt;p&gt;vue 存储库，允许跨组件 / 页面共享状态&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;pnpm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; pinia &lt;span class=&#34;token parameter variable&#34;&gt;--save&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h2&gt;
+&lt;h3 id=&#34;1创建-storeindexjs-文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1创建-storeindexjs-文件&#34;&gt;#&lt;/a&gt; 1. 创建 store/index.js 文件&lt;/h3&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 引入 pinia&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;defineStore&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;pinia&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; store &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;defineStore&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;counterStore&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//state 存放所有状态&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token literal-property property&#34;&gt;userId&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//action 修改状态&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token literal-property property&#34;&gt;actions&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;editUserId&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;&lt;span class=&#34;token literal-property property&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; number&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;userId &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; val&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;2全局引入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2全局引入&#34;&gt;#&lt;/a&gt; 2. 全局引入&lt;/h3&gt;
+&lt;p&gt;在 main.js 文件中引入并使用&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;createPinia&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;pinia&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; app &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;createApp&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;App&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;app&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;createPinia&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;3使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3使用&#34;&gt;#&lt;/a&gt; 3. 使用&lt;/h3&gt;
+&lt;h2 id=&#34;pinia持久化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pinia持久化&#34;&gt;#&lt;/a&gt; Pinia 持久化&lt;/h2&gt;
+&lt;p&gt;刷新页面后全局状态的值会被清空&lt;br /&gt;
+因此要做持久化处理&lt;/p&gt;
+&lt;h3 id=&#34;安装-pinia-plugin-persist&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-pinia-plugin-persist&#34;&gt;#&lt;/a&gt; 安装 pinia-plugin-persist&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;pnpm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; pinia-plugin-persist&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;1引入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1引入&#34;&gt;#&lt;/a&gt; 1. 引入&lt;/h3&gt;
+&lt;p&gt;在引入 pinaia 的基础上再次引用 piniaPluginPersist&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; piniaPluginPersist &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;pinia-plugin-persist&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;app&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;createPinia&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;piniaPluginPersist&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;2使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2使用&#34;&gt;#&lt;/a&gt; 2. 使用&lt;/h3&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 状态管理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token literal-property property&#34;&gt;persist&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 开启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token literal-property property&#34;&gt;enable&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token literal-property property&#34;&gt;strategies&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 指定 key，key 会在浏览器本地存储中生成对应的 name&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token literal-property property&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;site&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 自定义存储方式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token literal-property property&#34;&gt;storage&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; localStorage&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 要保存的对象，默认所有&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token literal-property property&#34;&gt;paths&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;userId&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://localhost/2023/03/22/vue/vuebasics/</guid>
-            <title>Vue基础</title>
+            <title>Vue</title>
             <link>http://localhost/2023/03/22/vue/vuebasics/</link>
             <category term="vue" scheme="http://localhost/tags/vue/" />
             <pubDate>Wed, 22 Mar 2023 16:13:21 +0000</pubDate>
-            <description><![CDATA[  ]]></description>
+            <description><![CDATA[ &lt;h1 id=&#34;笔记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#笔记&#34;&gt;#&lt;/a&gt; 笔记&lt;/h1&gt;
+&lt;h2 id=&#34;脚手架文件结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#脚手架文件结构&#34;&gt;#&lt;/a&gt; 脚手架文件结构&lt;/h2&gt;
+&lt;h2 id=&#34;关于不同版本的vue&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于不同版本的vue&#34;&gt;#&lt;/a&gt; 关于不同版本的 Vue&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.vue.js与vue.runtime.xxx.js的区别：
+    1.vue.js是完整版的Vue，包含：核心功能 + 模板解析器。
+    2.vue.runtime.xxx.js 是运行版的Vue，只包含：核心功能；没有模板解析器。
+2.因为vue.runtime.xxx.js没有模板解析器，所以不能使用template这个配置项，需要使用render函数接收到的createElement函数去指定具体内容。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;vueconfigjs配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vueconfigjs配置文件&#34;&gt;#&lt;/a&gt; vue.config.js 配置文件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.使用vue inspect &amp;gt; output.js可以查看到Vue脚手架的默认配置。
+2.使用vue.config.js可以对脚手架进行个性化定制，详情见：https://cli.vuejs.org/zh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;ref属性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ref属性&#34;&gt;#&lt;/a&gt; ref 属性&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.被用来给元素或子组件注册引用信息(id的替代者)
+2.应用在HTML标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象(vc)
+3.使用方式：
+    打标识：&amp;lt;h1 ref=&amp;quot;xxx&amp;quot;&amp;gt;.....&amp;lt;/h1&amp;gt; 或 &amp;lt;School ref=&amp;quot;xxx&amp;quot;&amp;gt;&amp;lt;/School&amp;gt;
+    获取：this.$refs.xxx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;配置项props&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置项props&#34;&gt;#&lt;/a&gt; 配置项 props&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;功能：让组件接收外部传过来的数据
+    (1).传递数据：
+        &amp;lt;Demo name=&amp;quot;xxx&amp;quot; /&amp;gt;
+    (2).接收数据：
+        第一种方式(只接收)：
+            props:[&#39;name&#39;]
+        
+        第二种方式(限制类型)：
+            props:&amp;#123;
+                name:String
+            &amp;#125;
+
+        第三种方式(限制类型、限制必要性、指定默认值)
+            props:&amp;#123;
+                name:&amp;#123;
+                    type:String, // 类型
+                    required:true, // 必要性
+                    default:&#39;张三&#39; // 默认值
+                &amp;#125;
+            &amp;#125;
+备注：props是只读的，Vue底层会检测你props的修改，如果进行了修改，就会发生警 告，若业务需求确实要修改，那么请复制props的内容到data中一份，然后去修改data中的数据
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;mixin混入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mixin混入&#34;&gt;#&lt;/a&gt; mixin (混入)&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;功能：可以把多个组件共用的配置提取成一个混入对象
+使用方式：
+    第一步定义混合，例如
+        &amp;#123;
+            data()&amp;#123;...&amp;#125;,
+            methods:&amp;#123;...&amp;#125;
+            ...
+        &amp;#125;
+    第二部使用混入，例如：
+        (1).全局混入：Vue.mixin(xxx)
+        (2).局部混入：mixins:[xxx]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;插件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#插件&#34;&gt;#&lt;/a&gt; 插件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;功能：用于增强Vue
+本质：包含install方法的个对象，install的第一个参数是Vue，第二个参数是插件使用者传递的数据。
+定义插件：
+    对象.install = function (Vue,options)&amp;#123;
+        // 1.添加全局过滤器
+        Vue.filter(....)
+
+        //2.添加全局指令
+        Vue.directive(....)
+
+        //3.配置全局混入(合)
+        Vue.mixin(....)
+
+        //4.添加实例方法
+        Vue.prototype.$MyMethod = function () &amp;#123;...&amp;#125;
+        Vue.prototype.$myProperty = xxx
+    &amp;#125;
+使用插件：Vue.use()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;scoped样式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#scoped样式&#34;&gt;#&lt;/a&gt; scoped 样式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;作用：让样式在局部生效，防止冲突。
+写法：&amp;lt;style scoped&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;总结todolist案例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结todolist案例&#34;&gt;#&lt;/a&gt; 总结 TodoList 案例&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.组件化编码流程：
+    (1).拆分静态组件：组件要按功能点拆分，命名不要与html元素冲突。 
+    (2).实现动态组件：考虑好数据存放位置，数据是一个组件在用，还是一些组件在用：
+        1).一个组件在用：放在组件自生即可。
+        2).一些组件在用：放在他们共同的父组件上(状态提升)。
+    (3).实现交互：从绑定事件开始。
+
+2.props适用于：
+    (1).父组件 ==&amp;gt; 子组件 通信
+    (2).子组件 ==&amp;gt; 父组件 通信 (要求父先给子一个函数)
+
+3.使用v-model时要切记：v-model绑定的值不能是props传过来的值，因为props是不可以修改的！
+
+4.props传过来的若是对象类型的值，修改对象中的属性时Vue不会报错，但不推荐这样做。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;webstorage&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#webstorage&#34;&gt;#&lt;/a&gt; webStorage&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.存储内存大小一般至此5MB左右(不同浏览器可能还不一样)
+2.浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。
+3.相关API:
+    1.xxxxStorage.setItem(&#39;key&#39;,&#39;value&#39;);
+        该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。
+    2.xxxxStorage.getItem(&#39;person&#39;);
+        该方法接受一个键名作为参数，返回键名对应的值。
+    3.xxxxStorage.removeItem(&#39;key&#39;);
+        该方法接受一个键名作为参数，并把该键值对从存储中删除。
+    4.xxxxStorage.cleat()
+        该方法会清空存储中所有的值。
+    
+4.备注：
+    1.SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+    2.LocalStorage存储的内容，需要手动清除才会小时。
+    3.xxxxStorage.getItem(xxx)如果xxx对应的value获取不到，那么getItem的返回值是null。
+    4.JSON.parse(null)的结果依然是null。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;组件的自定义事件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#组件的自定义事件&#34;&gt;#&lt;/a&gt; 组件的自定义事件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.一种组件间通信的方式，适用于：子组件 =&amp;gt; 父组件
+2.使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件(事件的回调在A中)。
+3.绑定自定义事件：
+    1.第一种方式，在父组件中：&amp;lt;Demo @mirai=&amp;quot;test&amp;quot;/&amp;gt; 或 &amp;lt;Demo v-on:mirai=&amp;quot;test&amp;quot;/&amp;gt;
+    2.第二种方式：在父组件中：
+    &amp;lt;Demo ref=&amp;quot;demo&amp;quot;/&amp;gt;
+    ......
+    mounted()&amp;#123;
+        this.$ref.xxx.$on(&#39;mirai&#39;,this.test)
+    &amp;#125;
+    3.若想让自定义事件只能触发一次，可以使用once修饰符,或$once方法。
+4.触发自定义事件：this.$emit(&#39;mirai&#39;,数据)
+5.解绑自定义事件：this.$off(&#39;mirai&#39;)
+6.组件上也可以绑定原生DOM事件，需要使用native修饰符。
+7.注意：通过this.$refs.xxx.$on(&#39;mirai&#39;,回调)绑定自定义事件时，回调要么配置在methods中，要么用箭头函数，否则this指向会出问题！
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;全局事件总线-globaleventbus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#全局事件总线-globaleventbus&#34;&gt;#&lt;/a&gt; 全局事件总线 (GlobalEventBus)&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.一种组件间通信的方式，适用于任意组件间通信。
+
+2.安装全局事件总线：
+new Vue(&amp;#123;
+    ...
+    beforeCreate()&amp;#123;
+        Vue.prototype.$bus = this // 安装全局事件总线，$bus就是当前应用的vm
+    &amp;#125;,
+    ...
+&amp;#125;)
+
+3.使用事件总线：
+    1.接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的回调留在A组件自身。
+    methods()&amp;#123;
+        demo(data)&amp;#123;......&amp;#125;
+    &amp;#125;
+    ......
+    mounted()&amp;#123;
+        this.$bus.$on(&#39;xxxx&#39;,this.demo)
+    &amp;#125;
+    2.提供数据：this.$bus.$emit(&#39;xxxx&#39;,this.demo)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;消息订阅与发布pubsub&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#消息订阅与发布pubsub&#34;&gt;#&lt;/a&gt; 消息订阅与发布 (pubsub)&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.一种组件间通信的方式，适用于任意组件间通信。
+2.使用步骤：
+    1.安装pubsub：npm i pubsub-js
+    2.引入：import pubsub from &#39;pubsub-js&#39;
+    3.接收数据：A组件想要接收数据，则在A组件中订阅消息，订阅的回调留在A组件自身。
+    methods:&amp;#123;
+        demo(data)&amp;#123;......&amp;#125;
+    &amp;#125;
+    ......
+    mounted()&amp;#123;
+        this.pid = pubsub.subscribe(&#39;xxx&#39;,this.demo) // 订阅消息
+    &amp;#125;
+4.提供数据：pubsub.publish(&#39;xxx&#39;,数据)
+5.最好在beforeDestroy钩子中，用PubSub.unsubscribe(pid)去取消订阅。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;nexttick&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nexttick&#34;&gt;#&lt;/a&gt; nextTick&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.语法：this.$nextTick(回调函数)
+2.作用：在下一次 DOM 更新结束后执行指定的回调。
+3.什么时候用：当改变数据后，要基于更新后的新 DOM 进行某些操作时，要在 nextTick 所指定的回调函数中执行。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;vue封装的过渡与动画&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue封装的过渡与动画&#34;&gt;#&lt;/a&gt; Vue 封装的过渡与动画&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。
+2.图示：
+
+3.写法：
+    1.准备好样式：
+        元素进入的样式：
+            1.v-enter：进入的起点
+            2.v-enter-active：进入的过程中
+            3.v-enter-to：进入的终点
+        
+        元素离开的样式：
+            1.v-leave：离开的起点
+            2.v-leave-active：离开的过程中
+            3.v-leave-to：离开的终点
+    
+    2.使用&amp;lt;transition&amp;gt;包裹要过渡的元素，并配置name属性：
+        &amp;lt;transition name=&amp;quot;hello&amp;quot;&amp;gt;
+            &amp;lt;h1 v-show=&amp;quot;isShow&amp;quot;&amp;gt;你好啊&amp;lt;/h1&amp;gt;
+        &amp;lt;/transition&amp;gt;
+    
+    3.备注：若有多个元素需要过渡，则需要使用：&amp;lt;transition-group&amp;gt;，且每个元素都要指定key值。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;vue脚手架配置代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue脚手架配置代理&#34;&gt;#&lt;/a&gt; Vue 脚手架配置代理&lt;/h2&gt;
+&lt;h3 id=&#34;方法一&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法一&#34;&gt;#&lt;/a&gt; 方法一&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;在vue.config.js中添加如下配置:
+    devServer:&amp;#123;
+        proxy:&amp;quot;http://localhost:5000&amp;quot;
+    &amp;#125;
+说明：
+    1.优点：配置简单，请求资源时直接发给前端(8080)即可。
+    2.却点：不能配置多个代理，不能灵活的控制请求是否走代理。
+    3.工作方式：若按照上述配置代理，当请求了前端不存在的资源时，那么该请求会转发给服务器(优先匹配前端资源)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;方法二&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法二&#34;&gt;#&lt;/a&gt; 方法二&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;编写vue.config.js配置具体代理规则：
+    module.exports=&amp;#123;
+        devServer:&amp;#123;
+            proxy:&amp;#123;
+                &#39;/api&#39;:&amp;#123; // 匹配所有以&#39;/api&#39;开头的请求路径
+                    target:&#39;http://localhost:5000&#39;,  // 代理目标的基础路径
+                    changeOrigin:true,
+                    pathRewrite:&amp;#123;&#39;^/api&#39;:&#39;&#39;&amp;#125;
+                &amp;#125;,
+                &#39;/api2&#39;:&amp;#123;
+                    target:&#39;http://localhost:5001&#39;,
+                    changeOrigin:true,
+                    pathRewrite:&amp;#123;&#39;^/api&#39;:&#39;&#39;&amp;#125;
+                &amp;#125;
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+    /*
+        changeOrigin设置为true时，服务器接收到的请求头中的host为：localhost:5000
+        changeOrigin设置为false时，服务器接收到的请求头中的host为：localhost:8080
+        cahngeOrigin默认值为true
+     */
+
+说明：
+    1.优点：可以配置多个代理，且可以灵活的控制请求是否走代理。
+    2.缺点：配置略微繁琐，请求资源时必须加前缀。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;插槽&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#插槽&#34;&gt;#&lt;/a&gt; 插槽&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，适用于 父组件===&amp;gt;子组件。
+2.分类：默认插槽、具名插槽、作用域插槽
+3.使用方式：
+    1.默认插槽：
+        父组件中：
+            &amp;lt;Category&amp;gt;
+                &amp;lt;div&amp;gt;html结构1&amp;lt;/div&amp;gt;
+            &amp;lt;/Category&amp;gt;
+        子组件中：
+            &amp;lt;template&amp;gt;
+                &amp;lt;div&amp;gt;
+                    &amp;lt;!-- 定义插槽 --&amp;gt;
+                    &amp;lt;slot&amp;gt;默认插槽内容...&amp;lt;/slot&amp;gt;
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/template&amp;gt;
+    
+    2.具名插槽：
+        父组件中：
+            &amp;lt;Category&amp;gt;
+                &amp;lt;template slot=&amp;quot;center&amp;quot;&amp;gt;
+                    &amp;lt;div&amp;gt;html结构1&amp;lt;/div&amp;gt;
+                &amp;lt;/template&amp;gt;
+
+                &amp;lt;template v-slot:footer&amp;gt;
+                    &amp;lt;div&amp;gt;html结构2&amp;lt;/div&amp;gt;
+                &amp;lt;/template&amp;gt;
+            &amp;lt;/Category&amp;gt;
+        子组件中：
+            &amp;lt;template&amp;gt;
+                &amp;lt;div&amp;gt;
+                    &amp;lt;!-- 定义插槽 --&amp;gt;
+                    &amp;lt;slot name=&amp;quot;center&amp;quot;&amp;gt;插槽默认内容&amp;lt;/slot&amp;gt;
+                    &amp;lt;slot name=&amp;quot;footer&amp;quot;&amp;gt;插槽默认内容&amp;lt;/slot&amp;gt;
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/template&amp;gt;
+    
+    3.作用域插槽：
+        1.理解：数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定。(games数据在Category组件中，但使用数据所遍历出来的结构由App组件决定)
+        2.具体编码：
+            父组件中：
+                &amp;lt;Category&amp;gt;
+                    &amp;lt;template scope=&amp;quot;scopeData&amp;quot;&amp;gt;
+                        &amp;lt;!-- 生成的是ul列表 --&amp;gt;
+                        &amp;lt;ul&amp;gt;
+                            &amp;lt;li v-for=&amp;quot;g in scopeData.games&amp;quot; :key=&amp;quot;g&amp;quot;&amp;gt;&amp;#123;&amp;#123;g&amp;#125;&amp;#125;&amp;lt;/li&amp;gt;
+                        &amp;lt;/ul&amp;gt;
+                    &amp;lt;/template&amp;gt;
+                &amp;lt;/Category&amp;gt;
+
+                &amp;lt;Category&amp;gt;
+                    &amp;lt;template scope=&amp;quot;scopeData&amp;quot;&amp;gt;
+                        &amp;lt;!-- 生成的是h4标题 --&amp;gt;
+                        &amp;lt;h4 v-for=&amp;quot;g in scopeData.games&amp;quot; :key=&amp;quot;g&amp;quot;&amp;gt;&amp;#123;&amp;#123;g&amp;#125;&amp;#125;&amp;lt;/h4&amp;gt;
+                    &amp;lt;/template&amp;gt;
+                &amp;lt;/Category&amp;gt;
+            子组件中：
+                &amp;lt;h3&amp;gt;&amp;#123;&amp;#123;title&amp;#125;&amp;#125;&amp;lt;/h3&amp;gt;
+                &amp;lt;template&amp;gt;
+                    &amp;lt;div&amp;gt;
+                        &amp;lt;slot :games=&amp;quot;games&amp;quot;&amp;gt;&amp;lt;slot&amp;gt;
+                    &amp;lt;/div&amp;gt;
+                &amp;lt;/template&amp;gt;
+
+                &amp;lt;script&amp;gt;
+                    export default&amp;#123;
+                        name:&#39;Category&#39;,
+                        props:[&#39;title&#39;],
+                        // 数据在子组件自身
+                        data()&amp;#123;
+                            return&amp;#123;
+                                games:[&#39;只狼&#39;,&#39;猫&#39;,&#39;原子之心&#39;,&#39;森林之子2&#39;]
+                            &amp;#125;
+                        &amp;#125;
+                    &amp;#125;
+                &amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;vuex&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vuex&#34;&gt;#&lt;/a&gt; Vuex&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.概念：
+    在 Vue 中实现集中式状态(数据)管理的一个Vue插件，对vue应用中多个组件的共享状态进行集中式管理(读/写),也是一种组件间通信的方式，且适用与任意组件间通信。
+2.何时使用？
+    多个组件需要共享数据时。
+3.搭建vuex环境
+    1.创建文件：/src/store/index.js
+        // 引入 Vue 核心
+        import Vue from &#39;vue&#39;
+        // 引入 Vuex
+        import Vuex from &#39;vuex&#39;
+        // 应用 Vue 插件
+        Vue.use(Vuex)
+
+        // 准备action对象————响应组件中用户的动作
+        const action = &amp;#123;&amp;#125;
+        // 准备mutions对象————修改state中的数据
+        const mutions = &amp;#123;&amp;#125;
+        // 准备state对象————保存具体的数据
+        const state = &amp;#123;&amp;#125;
+
+        // 创建并暴露store
+        export default = new Vuex.Store(&amp;#123;
+            action,
+            mutions,
+            state
+        &amp;#125;)
+    
+    2.在main.js中创建vm时传入store配置项
+        ...
+        // 引入 store
+        import store from &#39;./store&#39;
+        ...
+        // 创建vm
+        new Vue(&amp;#123;
+            el:&#39;#app&#39;,
+            render: h =&amp;gt; h(App),
+            store
+        &amp;#125;)
+4.基本使用
+    1.初始化数据，配置action，配置mutactions，此操作文件store.js
+        // 引入 Vue 核心库
+        import Vue from &#39;vue&#39;
+        // 引入 Vuex
+        import Vuex from &#39;vuex&#39;
+        
+        //引用 Vuex
+        Vue.use(Vuex)
+
+        const action = &amp;#123;
+            // 响应组件中加的动作
+            jia(context,value)&amp;#123;
+                context.commit(&#39;JIA&#39;,value)
+            &amp;#125;
+        &amp;#125;
+
+        const mutactions = &amp;#123;
+            JIA(state,value)&amp;#123;
+                state.sum += value
+            &amp;#125;
+        &amp;#125;
+
+        // 初始化数据
+        const state = &amp;#123;
+            sum:0
+        &amp;#125;
+
+        // 创建并暴露 store
+        export default new Vuex.Store(&amp;#123;
+            actions,
+            mutactions,
+            state
+        &amp;#125;)
+    
+    2.组件中读取vuex中的数据：$store.state.sum
+    3.组件中修改vuex中的数据：$store.dispatch(&#39;action中的方法名&#39;,数据) 或 $store.commit(&#39;mutaction中的方法名&#39;,数据)
+    备注：若没有网络请求或其他业务逻辑，组件中也可以越过 actions，即不写 dispatch，直接写 commit
+5.getters的使用
+    1.概念：当 state 中的数据需要经过加工后再使用时，可以使用 getters 加工。
+    2.在 store.js 中追加 getters 配置
+        ...
+        const getters = &amp;#123;
+            bigSum(state)&amp;#123;
+                return state.sum * 10
+            &amp;#125;
+        &amp;#125;
+
+        // 创建并暴露 store
+        export default new Vuex.Store(&amp;#123;
+            ...
+            getters
+        &amp;#125;)
+    3.组件中读取数据：$store.getters.bigSum
+
+6.四个 map 方法使用
+    1.mapState方法：用于帮我们映射state中的数据为计算属性
+        computed:&amp;#123;
+            // 借助 mapState 生成计算属性：sum、student、subject (对象写法)
+            ...mapState(&amp;#123;sum:&#39;sum&#39;,student:&#39;student&#39;,subject:&#39;subject&#39;&amp;#125;)
+
+            // 借助 mapState 生成计算属性：sum、student、subject (数组写法)
+            ...mapState([&#39;sum&#39;,&#39;student&#39;,&#39;subject&#39;])
+        &amp;#125;
+    2.mapGetters方法：用于帮我们映射getters中的数据为计算属性
+        computed:&amp;#123;
+            // 借助 mapGetters 生成计算属性：bigSum (对象写法)
+            ...mapGetters(&amp;#123;bigSum:&#39;bigSum&#39;&amp;#125;)
+
+            // 借助 mapGetters 生成计算属性：bigSum (对象写法)
+            ...mapGetters([&#39;bigSum&#39;])
+        &amp;#125;
+    3.mapActions方法：用于帮我们生成与actions对话的方法，即：包含$store.dispatch(xxx)的函数
+        methods:&amp;#123;
+            // 靠 mapActions 生成：incrementOdd、incrementWait (对象形式)
+            ...mapActions(&amp;#123;incrementOdd:&#39;jiaOdd&#39;,incrementWait:&#39;jiaWait&#39;&amp;#125;)
+
+            // 靠 mapActions 生成：incrementOdd、incrementWait (数组形式)
+            ...mapActions([&#39;JiaOdd&#39;,&#39;JiaWait&#39;])
+        &amp;#125;
+        备注：mapActions 与 mapMutactions 使用时，若要传递参数需要：在模板中绑定事件时传递好参数，否则参数是事件对象。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#路由&#34;&gt;#&lt;/a&gt; 路由&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;1.理解：一个路由(route)就是一组映射关系(key-value)，多个路由需要路由器(router)进行管理。
+2.前端路由：key是路径，value是组件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;1基本使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1基本使用&#34;&gt;#&lt;/a&gt; 1. 基本使用&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.安装vue-router，命令：npm i vue-router
+2.应用插件：Vue.use(VueRouter)
+3.编写router配置项
+    // 引入VueRouter
+    import VueRouter from &#39;vue-router&#39;
+    // 引入路由组件
+    import About from &#39;../components/About&#39;
+    import Home from &#39;../components/Home&#39;
+
+    // 创建router实例对象，去管理一套路由规则
+    const router = new VueRouter(&amp;#123;
+        routes:[
+            &amp;#123;
+                path:&#39;/about&#39;,
+                component:About
+            &amp;#125;,
+            &amp;#123;
+                path:&#39;/home&#39;,
+                component:Home
+            &amp;#125;
+        ]
+    &amp;#125;)
+
+    // 暴露 router
+    export default router
+
+4.实现切换(active-class可配置高亮样式)
+    &amp;lt;router-link active-class=&#39;active&#39; to=&#39;/path&#39;&amp;gt;&amp;lt;/router-link&amp;gt;
+5.指定展示位置
+    &amp;lt;router-view&amp;gt;&amp;lt;/router-view&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;2几个注意点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2几个注意点&#34;&gt;#&lt;/a&gt; 2. 几个注意点&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.路由组件通常存放在pages文件夹，一般组件通常存放在components文件夹
+2.通过切换，&amp;quot;隐藏&amp;quot;了路由组件，默认是被销毁的，需要的时候再去挂载。
+3.每个组件都有自己的$route属性，里面存储着自己的路由信息。
+3.整个应用只有一个router，可以通过组件里的$router属性获取到。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3多级路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3多级路由&#34;&gt;#&lt;/a&gt; 3. 多级路由&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.配置路由规则，使用children配置项：
+    routes:[
+        &amp;#123;
+            path:&#39;/about&#39;,
+            component:About,
+        &amp;#125;,
+        &amp;#123;
+            path:&#39;/home&#39;,
+            component:Home,
+            children:[ // 通过 children 配置子级路由
+                &amp;#123;
+                    path:&#39;news&#39;, // 此处一定不要写 /new
+                    component:News
+                &amp;#125;,
+                &amp;#123;
+                    path:&#39;message&#39;, // 此处一定不要写 /message
+                    component:Message
+                &amp;#125;
+            ]
+        &amp;#125;
+    ]
+2.跳转(要写完整路径)
+    &amp;lt;router-link  to=&amp;quot;/home/news&amp;quot;&amp;gt;News&amp;lt;/router-link&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4路由的query参数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4路由的query参数&#34;&gt;#&lt;/a&gt; 4. 路由的 query 参数&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.传递的参数
+    &amp;lt;!-- 跳转并携带query参数，to的字符串写法 --&amp;gt;
+    &amp;lt;router-link :to=&amp;quot;/home/message/detail?id=123&amp;amp;title=你好&amp;quot;&amp;gt;跳转&amp;lt;/router-link&amp;gt;
+
+    &amp;lt;!-- 跳转并携带query参数，to的字符串写法 --&amp;gt;
+    &amp;lt;router-link :to=&amp;quot;&amp;#123;
+        path:&#39;/home/message/detail&#39;,
+        query:&amp;#123;
+            id=123,
+            title=&#39;你好&#39;
+        &amp;#125;
+    &amp;#125;&amp;quot;&amp;gt;
+        跳转
+    &amp;lt;/router-link&amp;gt;
+2.接收参数：
+    $route.query.id
+    $route.query.title
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5命名路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5命名路由&#34;&gt;#&lt;/a&gt; 5. 命名路由&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：可以简化路由的跳转。
+2.如何使用
+    1.给路由命名：
+        &amp;#123;
+            path:&#39;/demo&#39;,
+            component:Demo,
+            children:[
+                &amp;#123;
+                    path:&#39;test&#39;,
+                    component:Test,
+                    children:[
+                        &amp;#123;
+                            name:&#39;hello&#39;, // 给路由命名
+                            path:&#39;welcome&#39;,
+                            component:Hello
+                        &amp;#125;
+                    ]
+                &amp;#125;
+            ]
+        &amp;#125;
+2.简化跳转：
+    &amp;lt;!-- 简化前，需要写完整的路径 --&amp;gt;
+    &amp;lt;router-link to=&amp;quot;/demo/test/welcome&amp;quot;&amp;gt;跳转&amp;lt;/router-link&amp;gt;
+
+    &amp;lt;!-- 简化后直接通过名字跳转 --&amp;gt;
+    &amp;lt;router-link :to=&amp;quot;&amp;#123;name:hello&amp;#125;&amp;quot;&amp;gt;跳转&amp;lt;/router-link&amp;gt;
+
+    &amp;lt;!-- 简化写法配合传递参数 --&amp;gt;
+    &amp;lt;router-link :to=&amp;quot;&amp;#123;
+        name:&#39;hello&#39;,
+        query:&amp;#123;
+            id:123,
+            title:&#39;你好&#39;
+        &amp;#125;
+    &amp;#125;&amp;quot;&amp;gt;
+        跳转
+    &amp;lt;/touter-link&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;6路由的params参数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6路由的params参数&#34;&gt;#&lt;/a&gt; 6. 路由的 params 参数&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.配置路由，声明接收params参数
+    &amp;#123;
+        path:&#39;/home&#39;,
+        component:Home,
+        children:[
+            &amp;#123;
+                path:&#39;news&#39;,
+                component:News
+            &amp;#125;,
+            &amp;#123;
+                component:Message,
+                children:[
+                    &amp;#123;
+                        name:&#39;xiangqing&#39;,
+                        path:&#39;detail/:id/:title&#39;, // 使用占位符声明接收params参数
+                        component:Detail
+                    &amp;#125;
+                ]
+            &amp;#125;
+        ]
+    &amp;#125;
+2.传递参数
+    &amp;lt;!-- 跳转并携带params参数，to的字符串写法 --&amp;gt;
+    &amp;lt;router-link :to=&#39;`/home/message/detail/123/你好`&#39;&amp;gt;跳转&amp;lt;/router-link&amp;gt;
+
+    &amp;lt;!-- 跳转并携带params参数，to的对象写法 --&amp;gt;
+    &amp;lt;router-link :to=&#39;&amp;#123;
+        name:&#39;xiangqing&#39;,
+        params:&amp;#123;
+            id:123,
+            title:&#39;你好&#39;
+        &amp;#125;
+    &amp;#125;&#39;&amp;gt;
+        跳转
+    &amp;lt;/router-link&amp;gt;
+    特别注意：路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置！
+3.接收参数：
+    $route.params.id
+    $route.params.title
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;7路由的props配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7路由的props配置&#34;&gt;#&lt;/a&gt; 7. 路由的 props 配置&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;作用：让路由组件更方便收到参数
+    &amp;#123;
+        name:&#39;xiangqing&#39;,
+        path:&#39;detail/:id&#39;,
+        component:Detail,
+
+        //第一种写法:props值为对象，该对象中所有的key-value的组合都会通过props传给Detail组件
+        // props:&amp;#123;a:123&amp;#125;
+
+        // 第二种写法:props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+        // props:true
+
+        // 第三种写法:props值为函数，该函数返回的对象中的每一组key-value都会通过props传给Detail组件
+        props(route)&amp;#123;
+            return&amp;#123;
+                id:route.query.id,
+                title:route.query.title
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;8router-link的replace属性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#8router-link的replace属性&#34;&gt;#&lt;/a&gt; 8.&amp;lt;router-link&amp;gt; 的 replace 属性&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：控制路由跳转时操作浏览器历史记录的模式。
+2.浏览器的历史记录由两种写入方式：分别为push和replace，push是追加历史记录，replace是替换当前记录。路由跳转默认为push。
+3.如何开启replace模式：&amp;lt;router-link replace ...&amp;gt;News&amp;lt;/router-link&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;9编程式路由导航&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#9编程式路由导航&#34;&gt;#&lt;/a&gt; 9. 编程式路由导航&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：不借助&amp;lt;router-link&amp;gt;实现路由跳转，让路由跳转更加灵活
+2.具体编码：
+    //$router的两个API
+    this.$router.push(&amp;#123;
+        name:&#39;xiangqing&#39;,
+        params:&amp;#123;
+            id:xxx,
+            title:xxx
+        &amp;#125;
+    &amp;#125;)
+
+    this.$router.replace(&amp;#123;
+        name:&#39;xiangqing&#39;,
+        params:&amp;#123;
+            id:xxx,
+            title:xxx
+        &amp;#125;
+    &amp;#125;)
+
+    this.$router.forward() //前进
+    this.$router.back() //后退
+    this.$router.go() //可前进也可以后退
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;10缓存路由组件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#10缓存路由组件&#34;&gt;#&lt;/a&gt; 10. 缓存路由组件&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：让不展示的路由组件保持挂载，不被销毁。
+2.具体编码：
+    &amp;lt;keep-alive include=&#39;News&#39;&amp;gt;
+        &amp;lt;router-view&amp;gt;&amp;lt;/router-view&amp;gt;
+    &amp;lt;/keep-alive&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;11两个新的生命周期钩子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11两个新的生命周期钩子&#34;&gt;#&lt;/a&gt; 11. 两个新的生命周期钩子&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
+2.具体名字：
+    1.actived路由组件被激活时触发。
+    2.deactived路由组件失活时触发。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;12路由守卫&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#12路由守卫&#34;&gt;#&lt;/a&gt; 12. 路由守卫&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;1.作用：对路由进行权限控制
+2.分类：全局守卫、独享守卫、组件内守卫
+3.全局守卫：
+    //全局前置守卫，初始化时执行、每次路由切换前执行
+    router.beforeEach((to,from,next)=&amp;gt;&amp;#123;
+        if(to.meta.isAuth)&amp;#123; //判断当前路由是否需要进行权限控制
+            if(localStorage.getItem(&#39;school&#39;) === &#39;qinghua&#39;)&amp;#123; //权限控制的具体规则
+                next() //放行
+            &amp;#125;else&amp;#123;
+                alert(&#39;暂无权查看&#39;)
+                // next(&amp;#123;name:&#39;qinghua&#39;&amp;#125;)
+            &amp;#125;
+        &amp;#125;else&amp;#123;
+            next() //放行
+        &amp;#125;
+    &amp;#125;)
+
+    //全局后置守卫，初始化时执行、每次路由切换后执行
+    router.afterEach(()=&amp;gt;&amp;#123;
+        if(to.meta.title)&amp;#123;
+            document.title = to.meta.title //修改网页title
+        &amp;#125;else&amp;#123;
+            document.title = &#39;vue_test&#39;
+        &amp;#125;
+    &amp;#125;)
+
+4.独享守卫
+    beforeEnter:(to,from,next)&amp;#123;
+        if(to.meta.isAuth)&amp;#123; //判断当前路由是否需要进行权限控制
+            if(localStorage.getItem(&#39;school&#39;) === &#39;qinghua&#39;)&amp;#123;
+                next()
+            &amp;#125;else&amp;#123;
+                alert(&#39;暂无权限查看&#39;)
+                // next(&amp;#123;name:&#39;qinghua&#39;&amp;#125;)
+            &amp;#125;
+        &amp;#125;else&amp;#123;
+            next()
+        &amp;#125;
+    &amp;#125;
+
+5.组件内守卫
+    //进入守卫，通过路由规则，进入该组件时被调用
+    beforeRouterEnter(to,from,next)&amp;#123;
+    &amp;#125;,
+    //离开守卫，通过路由规则，离开组件时被调用
+    beforeRouterLeave(to,from,next)&amp;#123;
+    &amp;#125;&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://localhost/2023/03/14/net/addDatabase/</guid>
-            <title>.net core应用使用数据库</title>
-            <link>http://localhost/2023/03/14/net/addDatabase/</link>
+            <guid isPermalink="true">http://localhost/2023/03/14/net/EFCore/</guid>
+            <title>.net使用EFCore</title>
+            <link>http://localhost/2023/03/14/net/EFCore/</link>
             <category term=".net,SqlServer" scheme="http://localhost/tags/net-SqlServer/" />
             <pubDate>Tue, 14 Mar 2023 11:49:57 +0000</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;net-core-使用数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#net-core-使用数据库&#34;&gt;#&lt;/a&gt; .net core 使用数据库&lt;/h1&gt;
-&lt;h2 id=&#34;环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境&#34;&gt;#&lt;/a&gt; 环境&lt;/h2&gt;
-&lt;p&gt;vs studio2022&lt;br /&gt;
-.net 7.0&lt;/p&gt;
-&lt;h2 id=&#34;添加实体模型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加实体模型&#34;&gt;#&lt;/a&gt; 添加实体模型&lt;/h2&gt;
-&lt;p&gt;在项目中创建 /Models/User.cs&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;C#&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using System.ComponentModel.DataAnnotations&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;public class User&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Key&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public int Id &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Required&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;ErrorMessage &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;自定以错误提示&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public string Name &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Range&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1,15&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public int Age &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;引入 DataAnnotations 以便使用模型验证，&lt;br /&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;net-搭建-efcore-开发环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#net-搭建-efcore-开发环境&#34;&gt;#&lt;/a&gt; .net 搭建 EFCore 开发环境&lt;/h1&gt;
+&lt;h2 id=&#34;添加-nuget-包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加-nuget-包&#34;&gt;#&lt;/a&gt; 添加 NuGet 包&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Install-Package Microsoft.EntityFrameworkCore.Design&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Install-Package Microsoft.EntityFrameworkCore.SqlServer&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Install-Package Microsoft.EntityFrameworkCore.Tools &lt;span class=&#34;token comment&#34;&gt;#生成数据库的工具&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;添加实体类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加实体类&#34;&gt;#&lt;/a&gt; 添加实体类&lt;/h2&gt;
+&lt;p&gt;创建 Models 文件夹中添加实体类&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;C#&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using System.ComponentModel.DataAnnotation s&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;public class User&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;key&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public int Id &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Required&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Error &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;&amp;#123;0&amp;#125;不能为空&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Display&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;姓名&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public string Name &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Range&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0,120&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public int Age &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;引入 DataAnnotations 以便使用模型验证，&lt;br /&gt;
 Key 标识表示这个属性在数据库中作为主键&lt;br /&gt;
  Required 标识表示此属性不能为空，Message 用于自定义错误消息&lt;br /&gt;
  Range 标识限制值在一定范围&lt;/p&gt;
 &lt;h2 id=&#34;添加数据库上下文&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加数据库上下文&#34;&gt;#&lt;/a&gt; 添加数据库上下文&lt;/h2&gt;
-&lt;p&gt;在项目中创建 /Data/ApplicationDbContext.cs , 内容如下&lt;/p&gt;
+&lt;p&gt;在 Data 文件夹添加数据库上下文&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;ApplicationDbContext&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pulic class ApplicationDbContext &lt;span class=&#34;token builtin class-name&#34;&gt;:&lt;/span&gt; DbContext&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        public ApplicationDbContext&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;DbContextOptions&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;ApplicationDbContext&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; options&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token builtin class-name&#34;&gt;:&lt;/span&gt; base&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;options&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        public DbSet&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;User&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; User &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; get&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;  //User 表名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;依赖注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#依赖注入&#34;&gt;#&lt;/a&gt; 依赖注入&lt;/h2&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FTUC5ORVQ=&#34;&gt;ASP.NET&lt;/span&gt; Core 通过依赖关系注入 (DI) 生成。 服务（如数据库上下文）在 Program.cs 中向 DI 注册。 这些服务通过构造函数参数提供给需要它们的组件。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-C#&#34;&gt;var builder = WebApplication.CreateBuilder(args);
@@ -65,10 +798,18 @@ builder.Services.AddDbContext&amp;lt;AplicationDbContext&amp;gt;(options =&amp;g
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;配置连接字符串&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置连接字符串&#34;&gt;#&lt;/a&gt; 配置连接字符串&lt;/h2&gt;
 &lt;p&gt;进行本地开发时，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FTUC5ORVQ=&#34;&gt;ASP.NET&lt;/span&gt; Core 配置系统在 appsettings.json 文件中读取 ConnectionString 键。&lt;/p&gt;
-&lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token property&#34;&gt;&#34;AllowedHosts&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;*&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;ConnectionStrings&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;DefaultConnect&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Server = .; Database = dataBaseName; uid = sa; pwd = scce; TrustServerCertificate=true;&#34;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 设置为 true 时，传输层将使用 SSL 来加密通道并跳过证书链以验证信任。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;迁移并应用至数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#迁移并应用至数据库&#34;&gt;#&lt;/a&gt; 迁移并应用至数据库&lt;/h2&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token property&#34;&gt;&#34;AllowedHosts&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;*&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;ConnectionStrings&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;DefaultConnect&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Server = .; Database = dataBaseName; uid = sa; pwd = scce; TrustServerCertificate=true;&#34;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 设置为 true 时，传输层将使用 SSL 来加密通道并跳过证书链以验证信任。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;生成迁移文件-更新数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成迁移文件-更新数据库&#34;&gt;#&lt;/a&gt; 生成迁移文件 更新数据库&lt;/h2&gt;
 &lt;p&gt;在程序包管理器控制台中执行以下命令:&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Add-Migration InitialCreate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Update-Database&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Add-Migration InitialCreate：生成 Migrations/{timestamp}_InitialCreate.cs 迁移文件。 InitialCreate 参数是迁移名称。 可以使用任何名称，但是按照惯例，会选择可说明迁移的名称。 因为这是首次迁移，所以生成的类包含用于创建数据库架构的代码。 数据库架构基于在 ApplicationDbContext 类中指定的模型。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Add-Migration InitialCreate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Update-Database&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Add-Migration InitialCreate：生成 Migrations/{timestamp}_InitialCreate.cs 迁移文件。 InitialCreate 参数是迁移名称。&lt;/p&gt;
 &lt;p&gt;Update-Database：将数据库更新到上一个命令创建的最新迁移。 此命令在用于创建数据库的 Migrations/{time-stamp}_InitialCreate.cs 文件中运行 Up 方法。&lt;/p&gt;
+&lt;p&gt;Update-Database XXX：把数据回滚到 XXX 的状态，迁移脚本不变。&lt;br /&gt;
+Remove-migration：删除最后一次迁移脚本。&lt;br /&gt;
+Script-Migration：生成迁移 SQL 代码。&lt;br /&gt;
+Script-Migration A B：生成版本 A 到 B 的 SQL 脚本&lt;br /&gt;
+ Script-Migration A：生成版本 A 到最新版本的 SQL 脚本&lt;/p&gt;
+&lt;h3 id=&#34;反向工程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反向工程&#34;&gt;#&lt;/a&gt; 反向工程&lt;/h3&gt;
+&lt;p&gt;根据数据库表反向生成实体类&lt;br /&gt;
+ Scaffold-DbContext &#39;Server=.;Database=demo1;Trusted_Connection=True;MultipleActiveResultSets=true&#39; Micosoft.EntityFrameworkCore.SqlServer&lt;/p&gt;
 &lt;h2 id=&#34;数据库种子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据库种子&#34;&gt;#&lt;/a&gt; 数据库种子&lt;/h2&gt;
 &lt;p&gt;在项目中创建 /Data/SeedData.cs , 内容如下&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;C#&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using Microsoft.EntityFrameworkCore&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using Microsoft.Extensions.DependencyInjection&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using MvcMovie.Data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using System&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;using System.Linq&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;public static class SeedData&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    public static void Initialize&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;IServiceProvider serviceProvider&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        using &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;var context &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; new ApplicationDbContent&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            serviceProvider.GetRequiredService&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                DbContextOptions&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;ApplicationDbContent&lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            // 如果数据库中有数据，则会返回种子初始值设定项，且不进行种子数据的添加&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;context.User.Any&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;))&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token builtin class-name&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   // DB has been seeded&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            context.Movie.AddRange&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                new User&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Jack&#34;&lt;/span&gt;,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Age &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;12&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                new Movie&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Alien&#34;&lt;/span&gt;,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Age &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;13&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                new Movie&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;John&#34;&lt;/span&gt;,&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                    Age &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            context.SaveChanges&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;添加种子初始值设定项&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加种子初始值设定项&#34;&gt;#&lt;/a&gt; 添加种子初始值设定项&lt;/h3&gt;
@@ -81,7 +822,8 @@ using (var scope = app.Services.CreateScope())
     SeedData.Initialize(services);
 &amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
- ]]></description>
+&lt;h2 id=&#34;ef原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ef原理&#34;&gt;#&lt;/a&gt; EF 原理&lt;/h2&gt;
+&lt;figure class=&#34;highlight mermaid&#34;&gt;&lt;figcaption data-lang=&#34;mermaid&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;应用程序 &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; Dapper &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; ADO.NET Core &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;应用程序 &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; EF Core &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; ADO.NET Core&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;应用程序 &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; FreeSql &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; ADO.NET Core&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ADO.NET Core &lt;span class=&#34;token arrow operator&#34;&gt;--&gt;&lt;/span&gt; 数据库&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://localhost/2023/03/10/tools/hexo/</guid>
@@ -92,14 +834,16 @@ using (var scope = app.Services.CreateScope())
             <description><![CDATA[ &lt;h1 id=&#34;关于本文&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于本文&#34;&gt;#&lt;/a&gt; 关于本文&lt;/h1&gt;
 &lt;p&gt;使用 Hexo 生成博客模板，自动上传 Github 并自动生成页面文件并通过 GithubPage 访问。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#准备&#34;&gt;#&lt;/a&gt; 准备&lt;/h2&gt;
-&lt;p&gt;环境要求 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnLw==&#34;&gt;Nodejs&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=&#34;&gt;Git&lt;/span&gt;&lt;br /&gt;
- 需要用到的账号 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NpZ251cD9zb3VyY2U9bG9naW4=&#34;&gt;GitHub&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kYXNoLmNsb3VkZmxhcmUuY29tL3NpZ24tdXA=&#34;&gt;Cloudflare&lt;/span&gt;&lt;br /&gt;
- 工具 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v&#34;&gt;VSCode&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Nodejs 和 Git 为本地环境&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnLw==&#34;&gt; Nodejs&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=&#34;&gt;Git&lt;/span&gt;&lt;br /&gt;
+GitHub 部署你的网页，Cloudflare 为你的网站提供加速&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NpZ251cD9zb3VyY2U9bG9naW4=&#34;&gt; GitHub&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kYXNoLmNsb3VkZmxhcmUuY29tL3NpZ24tdXA=&#34;&gt;Cloudflare&lt;/span&gt;&lt;br /&gt;
+vscode 方便使用 Git&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20v&#34;&gt;VSCode&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;hexo-安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-安装&#34;&gt;#&lt;/a&gt; Hexo 安装&lt;/h2&gt;
-&lt;p&gt;在 vs code 使用 ++ Ctrl+Shift+` ++ 快捷唤出终端。&lt;br /&gt;
-以下指令安装 hexo-cli&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-g&lt;/span&gt; hexo-cli&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;初始化-hexo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初始化-hexo&#34;&gt;#&lt;/a&gt; 初始化 Hexo&lt;/h3&gt;
-&lt;p&gt;使用以下指令，在指定文件夹生成 hexo 项目。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-g&lt;/span&gt; hexo-cli&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;此指令全局安装 hexo-cli&lt;/p&gt;
+&lt;h3 id=&#34;初始化-hexo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初始化-hexo&#34;&gt;#&lt;/a&gt; 初始化 Hexo&lt;/h3&gt;
+&lt;p&gt;初始化 hexo 并在指定文件夹生成 blog 项目&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo init &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;folder&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;hexo-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-命令&#34;&gt;#&lt;/a&gt; Hexo 命令&lt;/h3&gt;
 &lt;details class=&#34;primary&#34;&gt;&lt;summary&gt;init&lt;/summary&gt;&lt;div&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Hexo init &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;folder&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。&lt;br /&gt;
@@ -215,14 +959,14 @@ using (var scope = app.Services.CreateScope())
 接下来可以通过 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3lvdXJnaXRodWJuYW1lLmdpdGh1Yi5pbw==&#34;&gt;yourgithubname.github.io&lt;/span&gt; 访问你的网站。&lt;/p&gt;
 &lt;h2 id=&#34;至此hexo的github部署基本完毕&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#至此hexo的github部署基本完毕&#34;&gt;#&lt;/a&gt; 至此 Hexo 的 Github 部署基本完毕&lt;/h2&gt;
 &lt;p&gt;以下是可能会遇到的问题&lt;/p&gt;
-&lt;h3 id=&#34;github页面速度奇慢无比&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github页面速度奇慢无比&#34;&gt;#&lt;/a&gt; GitHub 页面速度奇慢无比&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGVhbXBwLm5ldC8=&#34;&gt;Watt Toolkit&lt;/span&gt; 此工具能够提高你访问 github 页面的速度。&lt;/p&gt;
-&lt;h3 id=&#34;使用代理文件仍上传失败&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用代理文件仍上传失败&#34;&gt;#&lt;/a&gt; 使用代理文件仍上传失败&lt;/h3&gt;
+&lt;h3 id=&#34;github访问不了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github访问不了&#34;&gt;#&lt;/a&gt; GitHub 访问不了&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGVhbXBwLm5ldC8=&#34;&gt;Watt Toolkit&lt;/span&gt;&lt;br /&gt;
+ 能更快的访问 github。&lt;/p&gt;
+&lt;h3 id=&#34;git使用代理文件仍上传失败&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git使用代理文件仍上传失败&#34;&gt;#&lt;/a&gt; Git 使用代理文件仍上传失败&lt;/h3&gt;
 &lt;p&gt;修改代理设置，在本地仓库根目录找到.gitconfig 文件进行设置&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;user&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你的名字&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	email &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你的邮箱@gmail.com&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;gui&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	recentrepo &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; 你本地仓库的绝对路径&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;http&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	sslVerify &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 在此添加代理 ，注释则删除代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	proxy &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; http://127.0.0.1:1080   &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;https&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 在下面添加 https 代理，删除则删除代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	proxy &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; socks5://127.0.0.1:1080 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# proxy 的值视代理软件而定&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;自定义域名&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义域名&#34;&gt;#&lt;/a&gt; 自定义域名&lt;/h2&gt;
-&lt;p&gt;需要购买一个域名。&lt;br /&gt;
-大多数域名商第一年都很便宜。&lt;br /&gt;
-例如阿里云，腾讯云之类的买。&lt;/p&gt;
+&lt;p&gt;阿里云和腾讯云的域名新用户一般会很便宜。&lt;br /&gt;
+eu.org 为免费二级域名。&lt;/p&gt;
 &lt;h3 id=&#34;github添加域&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#github添加域&#34;&gt;#&lt;/a&gt; github 添加域&lt;/h3&gt;
 &lt;p&gt;找到你的个人信息页面 &amp;gt; Pages &amp;gt; Add a domains 添加域&lt;br /&gt;
 在你域名的解析页面设置解析&lt;br /&gt;
@@ -259,7 +1003,7 @@ using (var scope = app.Services.CreateScope())
 &lt;p&gt;在仓库的 sources 文件夹添加一个名为 CNAME 的文件 (不能有后缀)，填入你 page 设置的域名。&lt;br /&gt;
 github 自定义域名的操作会在 gh-page 生成一个 CNAME 文件，每次 action 构建页面会覆盖掉这个文件。&lt;/p&gt;
 &lt;h4 id=&#34;访问域名提示不安全&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#访问域名提示不安全&#34;&gt;#&lt;/a&gt; 访问域名提示不安全&lt;/h4&gt;
-&lt;p&gt;等待 github ssl 安全证书签发完毕。&lt;/p&gt;
+&lt;p&gt;github 会自动签发 ssl 安全证书。&lt;/p&gt;
 &lt;h2 id=&#34;dns加速&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dns加速&#34;&gt;#&lt;/a&gt; DNS 加速&lt;/h2&gt;
 &lt;p&gt;为了防止别人在打开你的博客时显示 404，可使用 DNS 加速来解决这一问题。&lt;br /&gt;
 Cloudflare 提供免费的 CDN 加速。&lt;br /&gt;
@@ -281,11 +1025,9 @@ Cloudflare 提供免费的 CDN 加速。&lt;br /&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;主题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题&#34;&gt;#&lt;/a&gt; 主题&lt;/h2&gt;
-&lt;p&gt;一般来说主题都是用如下命令添加主题的。&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone http//github.com/xxx/xxx.git themes/xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;但是在 github 进行 Action 时会报错 找不到子仓库连接。&lt;br /&gt;
-但换成以下命令就可以了，&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; submodule &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; http//github.com/xxx/xxx.git themes/xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个命令会将主题添加到本地仓库的子仓库中。&lt;/p&gt;
- ]]></description>
+&lt;p&gt;如下指令添加主题可能会在部署时遇到找不到子仓库链接的问题。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone http//github.com/xxx/xxx.git themes/xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;但换成以下命令就不会报错，这个命令会将主题添加到本地仓库的子仓库中。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; submodule &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; http//github.com/xxx/xxx.git themes/xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
     </channel>
 </rss>
