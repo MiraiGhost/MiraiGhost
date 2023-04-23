@@ -7,19 +7,21 @@ tags: Blog,Hexo
 使用 Hexo 生成博客模板，自动上传 Github 并自动生成页面文件并通过GithubPage访问。
 
 ## 准备
-环境要求 [Nodejs](https://nodejs.org/), [Git](https://git-scm.com/downloads)
-需要用到的账号 [GitHub](https://github.com/signup?source=login), [Cloudflare](https://dash.cloudflare.com/sign-up) 
-工具 [VSCode](https://code.visualstudio.com/)
+Nodejs和Git为本地环境
+[Nodejs](https://nodejs.org/), [Git](https://git-scm.com/downloads)
+GitHub部署你的网页，Cloudflare为你的网站提供加速
+[GitHub](https://github.com/signup?source=login), [Cloudflare](https://dash.cloudflare.com/sign-up) 
+vscode方便使用Git
+[VSCode](https://code.visualstudio.com/)
 
 ## Hexo 安装
-在 vs code 使用 ++ Ctrl+Shift+` ++ 快捷唤出终端。
-以下指令安装 hexo-cli
 ```bash
 npm install -g hexo-cli
 ```
+此指令全局安装 hexo-cli
 
 ### 初始化 Hexo
-使用以下指令,在指定文件夹生成 hexo 项目。
+初始化hexo并在指定文件夹生成blog项目
 ```bash
 hexo init <folder>
 npm install
@@ -147,10 +149,11 @@ jobs:
 ## 至此Hexo的Github部署基本完毕
 以下是可能会遇到的问题
 
-### GitHub页面速度奇慢无比
-[Watt Toolkit](https://steampp.net/) 此工具能够提高你访问 github 页面的速度。
+### GitHub访问不了
+[Watt Toolkit](https://steampp.net/) 
+能更快的访问github。
 
-### 使用代理文件仍上传失败
+### Git使用代理文件仍上传失败
 修改代理设置，在本地仓库根目录找到.gitconfig文件进行设置
 ```bash
 [user]
@@ -170,9 +173,8 @@ jobs:
 
 
 ## 自定义域名
-需要购买一个域名。
-大多数域名商第一年都很便宜。
-例如阿里云，腾讯云之类的买。
+阿里云和腾讯云的域名新用户一般会很便宜。
+eu.org为免费二级域名。
 
 ### github添加域
 找到你的个人信息页面 > Pages > Add a domains 添加域
@@ -195,7 +197,7 @@ jobs:
 github自定义域名的操作会在gh-page生成一个CNAME文件，每次action构建页面会覆盖掉这个文件。
 
 #### 访问域名提示不安全
-等待github ssl安全证书签发完毕。
+github会自动签发ssl安全证书。
 
 ## DNS加速
 为了防止别人在打开你的博客时显示 404，可使用DNS加速来解决这一问题。
@@ -206,16 +208,15 @@ Cloudflare提供免费的CDN加速。
 |@|CNAME|githubname.github.io|
 
 ## 主题
-一般来说主题都是用如下命令添加主题的。
+如下指令添加主题可能会在部署时遇到找不到子仓库链接的问题。
 ```bash
 git clone http//github.com/xxx/xxx.git themes/xxx
 ```
-但是在 github 进行 Action 时会报错 找不到子仓库连接。
-但换成以下命令就可以了,
+但换成以下命令就不会报错,这个命令会将主题添加到本地仓库的子仓库中。
 ```bash
 git submodule add http//github.com/xxx/xxx.git themes/xxx
 ```
-这个命令会将主题添加到本地仓库的子仓库中。
+
 
 
 

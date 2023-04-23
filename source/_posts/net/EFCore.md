@@ -1,28 +1,32 @@
 ---
-title: .net core应用使用数据库
+title: .net使用EFCore
 date: 2023-03-14 19:49:57
 tags: .net,SqlServer
+mermaid: true
 ---
 
-# .net core 使用数据库
+# .net 搭建 EFCore 开发环境
+## 添加 NuGet 包
+```bash
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools #生成数据库的工具 
+```
 
-## 环境
-vs studio2022
-.net 7.0
 
-
-## 添加实体模型
-在项目中创建 /Models/User.cs  
+## 添加实体类
+创建Models文件夹中添加实体类
 ```bash C#
-using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotation s;
 public class User
 {
-    [Key]
+    [key]
     public int Id { get; set; }
-    [Required(ErrorMessage = "自定以错误提示")]
+    [Required(Error = "{0}不能为空")]
+    [Display(Name = "姓名")]
     public string Name { get; set; }
-    [Range(1,15)]
+    [Range(0,120)]
     public int Age { get; set; }
 }
 ```
@@ -33,7 +37,7 @@ Range 标识限制值在一定范围
 
 
 ## 添加数据库上下文
-在项目中创建 /Data/ApplicationDbContext.cs ,内容如下
+在 Data 文件夹添加数据库上下文
 ```bash ApplicationDbContext
     pulic class ApplicationDbContext : DbContext
     {
@@ -44,7 +48,6 @@ Range 标识限制值在一定范围
         public DbSet<User> User { get; set; }  //User 表名
     }
 ```
-
 
 ## 依赖注入
 ASP.NET Core 通过依赖关系注入 (DI) 生成。 服务（如数据库上下文）在 Program.cs 中向 DI 注册。 这些服务通过构造函数参数提供给需要它们的组件。
@@ -65,15 +68,25 @@ builder.Services.AddDbContext<AplicationDbContext>(options =>
   }
 ```
 
-## 迁移并应用至数据库
+## 生成迁移文件 更新数据库
 在程序包管理器控制台中执行以下命令:
 ```bash
 Add-Migration InitialCreate
 Update-Database
 ```
- Add-Migration InitialCreate：生成 Migrations/{timestamp}_InitialCreate.cs 迁移文件。 InitialCreate 参数是迁移名称。 可以使用任何名称，但是按照惯例，会选择可说明迁移的名称。 因为这是首次迁移，所以生成的类包含用于创建数据库架构的代码。 数据库架构基于在 ApplicationDbContext 类中指定的模型。
+ Add-Migration InitialCreate：生成 Migrations/{timestamp}_InitialCreate.cs 迁移文件。 InitialCreate 参数是迁移名称。  
 
  Update-Database：将数据库更新到上一个命令创建的最新迁移。 此命令在用于创建数据库的 Migrations/{time-stamp}_InitialCreate.cs 文件中运行 Up 方法。
+
+Update-Database XXX：把数据回滚到XXX的状态，迁移脚本不变。
+Remove-migration：删除最后一次迁移脚本。
+Script-Migration：生成迁移SQL代码。
+Script-Migration A B：生成版本A到B的SQL脚本
+Script-Migration A：生成版本A到最新版本的SQL脚本
+
+### 反向工程
+根据数据库表反向生成实体类
+Scaffold-DbContext 'Server=.;Database=demo1;Trusted_Connection=True;MultipleActiveResultSets=true' Micosoft.EntityFrameworkCore.SqlServer
 
 ## 数据库种子
 在项目中创建 /Data/SeedData.cs ,内容如下
@@ -132,3 +145,10 @@ using (var scope = app.Services.CreateScope())
 }
 ```
 
+## EF原理
+```mermaid
+应用程序 --> Dapper --> ADO.NET Core 
+应用程序 --> EF Core --> ADO.NET Core
+应用程序 --> FreeSql --> ADO.NET Core
+ADO.NET Core --> 数据库
+```
