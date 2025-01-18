@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MiraiGhost&#39;Blog</title>
+    <link>http://localhost:1313/algolia.json</link>
+    <description>Recent content on MiraiGhost&#39;Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/post/hello/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <guid>http://localhost:1313/post/hello/</guid>
+      <description>💘 博麗 霊夢 💘</description>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 09 Jun 2022 20:12:52 +0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>友情链接</title>
+      <link>http://localhost:1313/friend/</link>
+      <pubDate>Thu, 09 Jun 2022 20:12:52 +0800</pubDate>
+      <guid>http://localhost:1313/friend/</guid>
+      <description>&#xD;本站信息&#xD;站名： MiraiGhost 站长： SeaGhost 申请方法&#xD;添加本站后，在本页留言，格式如下 ```yml - name: #您的名字 url: #您的网址 desc: #简短描述 image: #一张图片 ``` 小伙伴们&#xD;D-Sketon&#xD;Hexo 建站&#xD;D-Sketon&#xD;Astro 建站&#xD;</description>
+    </item>
+  </channel>
+</rss>
