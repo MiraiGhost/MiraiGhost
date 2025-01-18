@@ -332,7 +332,12 @@
 </div>
 <header id="header">
   
-    <img fetchpriority="high" src="/images/banner.webp" alt="">
+    <picture>
+      
+    </picture>
+    
+      <img fetchpriority="high" src="/images/banner.webp" alt="">
+    
   
 
   <div id="header-outer">
@@ -360,100 +365,11 @@
     </div>
   </div>
 </header>
-        <main id="content">
+        <div id="content"
           
-          <section id="main">
-  <div
-    class="archives-outer-wrap"
-    data-aos="fade-up"
-  >
-    <div class="tag-wrap">
-      
-    </div>
-    <div class="category-wrap">
-      
-    </div>
-    
-
-
-
-  <section class="archives-wrap" data-aos="fade-up">
-    <div class="archive-year-wrap">
-      <a href="" class="archive-year">2023</a>
-    </div>
-    <ul>
-      
-        <li class="archive-article">
-          <div class="archive-article-date-wrap">
-            <a href="http://localhost:1313/post/hello/">
-              <time
-                class="dt-published"
-                datetime="2023-03-15 11:00:00 -0700 -0700"
-                itemprop="datePublished"
-                >2023-03</time
-              >
-            </a>
-          </div>
-          
-            <a class="archive-article-title" href="http://localhost:1313/post/hello/"
-              >Hello World</a
-            >
-          
-        </li>
-      
-    </ul>
-  </section>
-
-
-  </div>
+          class="sidebar-right"  >
+          <aside id="sidebar">
   
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-<nav id="page-nav" data-aos="fade-up">
-  
-  
-    
-      
-        <span class="page-number current">1</span>
-      
-    
-  
-  
-</nav>
-
-</section>
-          
-            <aside id="sidebar">
-  
-  
-    <meting-js
-      theme="var(--color-link)"
-      id="6856072610"
-      server="netease"
-      type="playlist"
-      
-      fixed="true"
-      
-      
-      
-      
-      
-      
-      
-      >
-    </meting-js>
   
   <div class="sidebar-wrapper ">
     <div
@@ -603,8 +519,98 @@
   </div>
 </aside>
 
+          <section id="main">
+  <div
+    class="archives-outer-wrap"
+    data-aos="fade-up"
+  >
+    <div class="tag-wrap">
+      
+    </div>
+    <div class="category-wrap">
+      
+    </div>
+    
+
+
+
+  <section class="archives-wrap" data-aos="fade-up">
+    <div class="archive-year-wrap">
+      <a href="" class="archive-year">2023</a>
+    </div>
+    <ul>
+      
+        <li class="archive-article">
+          <div class="archive-article-date-wrap">
+            <a href="http://localhost:1313/post/hello/">
+              <time
+                class="dt-published"
+                datetime="2023-03-15 11:00:00 -0700 -0700"
+                itemprop="datePublished"
+                >2023-03</time
+              >
+            </a>
+          </div>
           
-        </main>
+            <a class="archive-article-title" href="http://localhost:1313/post/hello/"
+              >Hello World</a
+            >
+          
+        </li>
+      
+    </ul>
+  </section>
+
+
+  </div>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+<nav id="page-nav" data-aos="fade-up">
+  
+  
+    
+      
+        <span class="page-number current">1</span>
+      
+    
+  
+  
+</nav>
+
+</section>
+        </div>
+        
+        
+          <meting-js
+            theme="var(--color-link)"
+            id="6856072610"
+            server="netease"
+            type="playlist"
+            
+            fixed="true"
+            
+            
+            
+            
+            
+            
+            
+            >
+          </meting-js>
+        
         
 
 
@@ -1061,21 +1067,27 @@
     window.Pjax &&
       new window.Pjax({
         selectors: [
-          "#header img",
-          "#header picture",
+          "#header>img",
+          "#header>picture",
           "head title",
           "#header-title",
           "#subtitle-wrap",
           "#main",
+          "#content",
           ".sidebar-widget",
           ".sidebar-wrapper",
           "#mobile-nav",
           "#lazy-script",
         ],
         switches: {
+          "#content": function(oldEl, newEl) {
+            
+            oldEl.className = newEl.className;
+            this.onSwitch();
+          },
           "#header-title": Pjax.switches.outerHTML,
           "#subtitle-wrap": Pjax.switches.outerHTML,
-          "#content": function (oldEl, newEl) {
+          "#main": function (oldEl, newEl) {
             const scripts = [...newEl.querySelectorAll("script")];
             loadScripts(scripts, 0);
             oldEl.outerHTML = newEl.outerHTML;
@@ -1111,6 +1123,21 @@
 
 <div id="lazy-script">
   <div>
+    
+      
+      
+        
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "MiraiGhost",
+          title: "",
+          url: "http:\/\/localhost:1313\/archives\/",
+          description: "",
+          cover: "http:\/\/localhost:1313\/images\/banner.webp",
+        };
+      </script>
+    
     
     
       
@@ -1188,6 +1215,7 @@
 
 
 
+      
     
     
   </div>

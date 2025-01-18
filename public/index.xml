@@ -27,7 +27,7 @@
       <link>http://localhost:1313/friend/</link>
       <pubDate>Thu, 09 Jun 2022 20:12:52 +0800</pubDate>
       <guid>http://localhost:1313/friend/</guid>
-      <description>&#xD;本站信息&#xD;站名： MiraiGhost 站长： SeaGhost 申请方法&#xD;添加本站后，在本页留言，格式如下 ```yml - name: #您的名字 url: #您的网址 desc: #简短描述 image: #一张图片 ``` 小伙伴们&#xD;D-Sketon&#xD;Hexo 建站&#xD;D-Sketon&#xD;Astro 建站&#xD;</description>
+      <description> 本站信息 站名： MiraiGhost 站长： SeaGhost 申请方法 添加本站后，在本页留言，格式如下 ```yml - name: #您的名字 url: #您的网址 desc: #简短描述 image: #一张图片 ``` 小伙伴们 D-Sketon Hexo 建站 D-Sketon Astro 建站 </description>
     </item>
   </channel>
 </rss>

@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 title = "MiraiGhost'Blog"
-theme = 'hugo-theme-reimu'
+theme = 'reimu'
 
 languageCode = 'zh-CN'
 defaultContentLanguage = 'zh-CN'
